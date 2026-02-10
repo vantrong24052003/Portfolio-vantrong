@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaGem, FaNodeJs, FaReact, FaVuejs, FaGithub, FaFacebook, FaEnvelope, FaInstagram, FaDownload, FaLaravel } from 'react-icons/fa';
+import { FaGem, FaNodeJs, FaReact, FaVuejs, FaGithub, FaFacebook, FaEnvelope, FaInstagram, FaDownload, FaLaravel, FaTrophy, FaGraduationCap } from 'react-icons/fa';
 import { MdTerminal, MdArrowForwardIos } from 'react-icons/md';
 import type { TechBadgeProps, SocialLinkProps } from './types';
 
@@ -25,11 +25,11 @@ const SocialLink: React.FC<SocialLinkProps> = ({ icon: Icon, label, href = "#" }
   </a>
 );
 
-export const IdentityModule: React.FC = () => {
+export const IdentityModule: React.FC<{ onContactClick?: () => void }> = ({ onContactClick }) => {
   const { t } = useTranslation();
 
   return (
-    <section className="w-full lg:w-5/12 flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-8 duration-700">
+    <section className="w-full lg:w-7/12 flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-8 duration-700">
       <div className="glass-panel rounded-xl p-8 md:p-10 relative overflow-hidden group transition-colors duration-500 hover:border-primary/50">
         {/* Decorative corner accents */}
         <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary" />
@@ -55,6 +55,28 @@ export const IdentityModule: React.FC = () => {
             {t('overview.bio').split('{{framework}}')[1]}
           </p>
 
+          {/* Achievement Badges */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-3 flex items-center gap-4 transition-all duration-300 hover:bg-amber-500/20 hover:border-amber-500/50 group/ach shadow-[0_0_15px_hsla(var(--primary)/0.05)]">
+              <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-500 group-hover/ach:scale-110 transition-transform shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+                <FaGraduationCap className="text-xl" />
+              </div>
+              <div>
+                <div className="text-[10px] font-mono text-amber-500/60 uppercase tracking-widest">{t('journey.milestones.education.subLabel')}</div>
+                <div className="text-sm font-bold text-amber-500/90">{t('overview.achievements.honors')}</div>
+              </div>
+            </div>
+            <div className="bg-accent/5 border border-accent/20 rounded-lg p-3 flex items-center gap-4 transition-all duration-300 hover:bg-accent/10 hover:border-accent/40 group/ach">
+              <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent group-hover/ach:scale-110 transition-transform shadow-[0_0_10px_hsla(var(--accent)/0.2)]">
+                <FaTrophy className="text-xl" />
+              </div>
+              <div>
+                <div className="text-[10px] font-mono text-accent/60 uppercase tracking-widest">Scientific Research</div>
+                <div className="text-sm font-bold text-foreground">{t('overview.achievements.nckh')}</div>
+              </div>
+            </div>
+          </div>
+
           {/* Tech Stack Badges */}
           <div className="flex flex-wrap gap-3 py-2">
             <TechBadge icon={FaGem} label={t('overview.techBadges.ruby')} colorClass="text-primary" borderOnly={false} />
@@ -67,9 +89,12 @@ export const IdentityModule: React.FC = () => {
           <div className="h-px w-full bg-linear-to-r from-primary/50 to-transparent my-2" />
 
           {/* Footer Actions */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div className="flex flex-wrap gap-4">
-              <button className="bg-primary hover:bg-primary-dark text-primary-foreground font-bold py-3 px-8 rounded-lg shadow-[0_0_15px_hsla(var(--primary)/0.4)] hover:shadow-[0_0_25px_hsla(var(--primary)/0.6)] transition-all duration-300 flex items-center gap-2 group/btn cursor-pointer">
+          <div className="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-6">
+            <div className="flex flex-wrap sm:flex-nowrap gap-4 w-full sm:w-auto">
+              <button
+                onClick={onContactClick}
+                className="bg-primary hover:bg-primary-dark text-primary-foreground font-bold py-3 px-6 rounded-lg shadow-[0_0_15px_hsla(var(--primary)/0.4)] hover:shadow-[0_0_25px_hsla(var(--primary)/0.6)] transition-all duration-300 flex items-center justify-center gap-2 group/btn cursor-pointer whitespace-nowrap flex-1 sm:flex-none"
+              >
                 <span>{t('overview.button')}</span>
                 <MdArrowForwardIos className="group-hover/btn:translate-x-1 transition-transform text-sm" />
               </button>
@@ -79,7 +104,7 @@ export const IdentityModule: React.FC = () => {
                 download
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-card/40 hover:bg-card/60 text-foreground border border-border hover:border-primary/50 backdrop-blur-md font-bold py-3 px-8 rounded-lg transition-all duration-300 flex items-center gap-2 group/cv cursor-pointer"
+                className="bg-card/40 hover:bg-card/60 text-foreground border border-border hover:border-primary/50 backdrop-blur-md font-bold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group/cv cursor-pointer whitespace-nowrap flex-1 sm:flex-none"
               >
                 <FaDownload className="group-hover:translate-y-0.5 transition-transform text-primary" />
                 <span>{t('overview.downloadCV')}</span>
@@ -96,9 +121,7 @@ export const IdentityModule: React.FC = () => {
       </div>
 
       {/* Floating Decorative Stats */}
-      <div className="flex justify-between px-2 text-xs font-mono text-muted-foreground uppercase tracking-wider">
-        <div>{t('overview.stats.id')}</div>
-        <div>{t('overview.stats.status')}</div>
+      <div className="flex justify-end px-2 text-xs font-mono text-muted-foreground uppercase tracking-wider">
         <div>{t('overview.stats.location')}</div>
       </div>
     </section>

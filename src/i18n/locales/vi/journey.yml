@@ -25,6 +25,7 @@ milestones:
       - "Laravel"
       - "PHP"
       - "MySQL"
+      - "VueJS"
     achievement: "Hỗ trợ hơn 50+ học viên nắm vững kiến thức backend backend cơ bản."
   current:
     year: "2025"

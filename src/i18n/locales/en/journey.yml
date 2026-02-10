@@ -25,6 +25,7 @@ milestones:
       - "Laravel"
       - "PHP"
       - "MySQL"
+      - "VueJS"
     achievement: "Supported 50+ students in mastering backend fundamentals."
   current:
     year: "2025"

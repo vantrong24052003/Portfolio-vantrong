@@ -13,6 +13,9 @@ stats:
   id: "ID: 84-DEV-BE"
   status: "Status: Available"
   location: "Loc: Vietnam"
+achievements:
+  honors: "Graduated with Honors"
+  nckh: "NCKH: 2nd Prize Winner"
 codeEditor:
   fileName: "identity_controller.rb"
   message: "Ready to build scalable systems"

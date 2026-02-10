@@ -13,6 +13,9 @@ stats:
   id: "ID: 84-DEV-BE"
   status: "Trạng thái: Sẵn sàng"
   location: "Vị trí: Việt Nam"
+achievements:
+  honors: "Tốt nghiệp loại Giỏi"
+  nckh: "NCKH: Giải Nhì cấp Trường"
 codeEditor:
   fileName: "identity_controller.rb"
   message: "Sẵn sàng xây dựng các hệ thống mở rộng"

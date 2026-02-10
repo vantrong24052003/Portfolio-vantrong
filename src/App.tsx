@@ -47,7 +47,7 @@ const App: React.FC = () => {
 
   const renderScene = () => {
     switch (currentScene) {
-      case 0: return <OverviewScene />;
+      case 0: return <OverviewScene onContactClick={() => setCurrentScene(3)} />;
       case 1: return <JourneyScene />;
       case 2: return <ShowcaseScene />;
       case 3: return <ConnectionScene />;
