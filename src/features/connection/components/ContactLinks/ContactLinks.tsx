@@ -6,6 +6,8 @@ const RevealLink: React.FC<RevealLinkProps> = ({ icon: Icon, value, href }) => {
   return (
     <a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="group flex items-center gap-3 bg-muted/50 hover:bg-primary hover:text-primary-foreground text-muted-foreground px-4 py-3 rounded-xl transition-all duration-300 border border-border hover:border-primary w-full md:w-auto cursor-pointer"
     >
       <Icon className="text-xl shrink-0" />

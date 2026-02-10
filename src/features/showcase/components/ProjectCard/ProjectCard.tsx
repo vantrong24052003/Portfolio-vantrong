@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdVisibility, MdCode } from 'react-icons/md';
+import { MdLock, MdCode } from 'react-icons/md';
 import type { ProjectCardProps } from './types';
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
@@ -19,14 +19,24 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         />
         <div className="absolute inset-0 bg-background/40 group-hover:bg-transparent transition-all duration-500" />
 
-        {/* Action Overlay */}
         <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-background/60 backdrop-blur-sm">
-          <button className="p-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors shadow-lg cursor-pointer">
-            <MdVisibility className="text-xl" />
-          </button>
-          <button className="p-3 bg-muted border border-primary text-primary rounded-full hover:bg-primary/10 transition-colors shadow-lg cursor-pointer">
-            <MdCode className="text-xl" />
-          </button>
+          <div
+            className="p-3 bg-primary/20 text-primary-foreground/50 rounded-full cursor-not-allowed flex items-center justify-center border border-primary/20"
+            title="Demo Unavailable"
+          >
+            <MdLock className="text-xl" />
+          </div>
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-muted border border-primary text-primary rounded-full hover:bg-primary/10 transition-colors shadow-lg cursor-pointer flex items-center justify-center"
+              title="View Code"
+            >
+              <MdCode className="text-xl" />
+            </a>
+          )}
         </div>
       </div>
 

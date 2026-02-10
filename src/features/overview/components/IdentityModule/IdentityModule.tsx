@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaGem, FaNodeJs, FaReact, FaVuejs, FaGithub, FaFacebook, FaEnvelope, FaInstagram } from 'react-icons/fa';
+import { FaGem, FaNodeJs, FaReact, FaVuejs, FaGithub, FaFacebook, FaEnvelope, FaInstagram, FaDownload, FaLaravel } from 'react-icons/fa';
 import { MdTerminal, MdArrowForwardIos } from 'react-icons/md';
 import type { TechBadgeProps, SocialLinkProps } from './types';
 
@@ -17,6 +17,8 @@ const SocialLink: React.FC<SocialLinkProps> = ({ icon: Icon, label, href = "#" }
   <a
     href={href}
     aria-label={label}
+    target="_blank"
+    rel="noopener noreferrer"
     className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary hover:bg-primary/10 transition-all duration-300 cursor-pointer"
   >
     <Icon className="text-xl" />
@@ -59,16 +61,30 @@ export const IdentityModule: React.FC = () => {
             <TechBadge icon={FaNodeJs} label={t('overview.techBadges.nodejs')} colorClass="text-green-500" />
             <TechBadge icon={FaReact} label={t('overview.techBadges.react')} colorClass="text-blue-400" />
             <TechBadge icon={FaVuejs} label={t('overview.techBadges.vue')} colorClass="text-emerald-400" />
+            <TechBadge icon={FaLaravel} label={t('overview.techBadges.laravel')} colorClass="text-red-500" />
           </div>
 
           <div className="h-px w-full bg-linear-to-r from-primary/50 to-transparent my-2" />
 
           {/* Footer Actions */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <button className="bg-primary hover:bg-primary-dark text-primary-foreground font-bold py-3 px-8 rounded-lg shadow-[0_0_15px_hsla(var(--primary)/0.4)] hover:shadow-[0_0_25px_hsla(var(--primary)/0.6)] transition-all duration-300 flex items-center gap-2 group/btn cursor-pointer">
-              <span>{t('overview.button')}</span>
-              <MdArrowForwardIos className="group-hover/btn:translate-x-1 transition-transform text-sm" />
-            </button>
+            <div className="flex flex-wrap gap-4">
+              <button className="bg-primary hover:bg-primary-dark text-primary-foreground font-bold py-3 px-8 rounded-lg shadow-[0_0_15px_hsla(var(--primary)/0.4)] hover:shadow-[0_0_25px_hsla(var(--primary)/0.6)] transition-all duration-300 flex items-center gap-2 group/btn cursor-pointer">
+                <span>{t('overview.button')}</span>
+                <MdArrowForwardIos className="group-hover/btn:translate-x-1 transition-transform text-sm" />
+              </button>
+
+              <a
+                href="/cv-doanvovantrong.pdf"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-card/40 hover:bg-card/60 text-foreground border border-border hover:border-primary/50 backdrop-blur-md font-bold py-3 px-8 rounded-lg transition-all duration-300 flex items-center gap-2 group/cv cursor-pointer"
+              >
+                <FaDownload className="group-hover:translate-y-0.5 transition-transform text-primary" />
+                <span>{t('overview.downloadCV')}</span>
+              </a>
+            </div>
             <div className="flex items-center gap-4">
               <SocialLink icon={FaGithub} label="GitHub" href="https://github.com/vantrong2405" />
               <SocialLink icon={FaFacebook} label="Facebook" href="https://www.facebook.com/doanvo.vantrong" />

@@ -59,7 +59,7 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 overflow-hidden">
       <SceneNavigator currentScene={currentScene} onSceneChange={setCurrentScene} />
 
-      <div key={currentScene} className="animate-in fade-in duration-1000 h-screen">
+      <div key={currentScene} className="animate-in fade-in duration-1000 h-screen overflow-y-auto custom-scrollbar">
         {renderScene()}
       </div>
 

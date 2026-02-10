@@ -1,34 +1,3 @@
-projects:
-  nekoCinema:
-    title: "Neko Cinema"
-    category: "Full Stack"
-    systemId: "SYSTEM 01"
-    description: "High-concurrency ticket booking platform. Implements complex seat reservation logic with WebSocket-driven real-time availability updates."
-    stack:
-      - "Ruby on Rails"
-      - "Redis"
-      - "ActionCable"
-      - "PostgreSQL"
-  shopeeClone:
-    title: "Shopee Clone"
-    category: "Backend API"
-    systemId: "SYSTEM 02"
-    description: "Scalable e-commerce backend engine. Designed for multi-vendor inventory management, intricate shopping cart logic, and fuzzy search optimization."
-    stack:
-      - "Ruby on Rails"
-      - "ElasticSearch"
-      - "Docker"
-      - "JWT"
-  twitterApi:
-    title: "Twitter-like API"
-    category: "Social Graph"
-    systemId: "SYSTEM 03"
-    description: "Robust social media backend. Focuses on relationship modeling (follower/following), complex feed generation algorithms, and efficient media handling via AWS."
-    stack:
-      - "GraphQL"
-      - "RSpec"
-      - "AWS S3"
-      - "ActiveRecord"
 stats:
   title: "NEARLY 1 YEAR"
   subtitle: "System Experience"

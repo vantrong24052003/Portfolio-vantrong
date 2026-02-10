@@ -1,7 +1,6 @@
 button: "Initialize Contact"
 chips:
   experience: "~1 Year RoR"
-  award: "NCKH Award"
   location: "Da Nang City"
 techId: "ID: 8392-DEV-VN"
 identity:

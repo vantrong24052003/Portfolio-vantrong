@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const AVATAR_URL = "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=400&auto=format&fit=crop";
+const AVATAR_URL = "/avatar.jpg";
 
 export const IdentityGlitch: React.FC = () => {
   const { t } = useTranslation();
@@ -15,7 +15,7 @@ export const IdentityGlitch: React.FC = () => {
           <img
             src={AVATAR_URL}
             alt="Identity Visualization"
-            className="opacity-80 object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
+            className="opacity-100 object-cover w-full h-full transition-all duration-500"
           />
         </div>
 

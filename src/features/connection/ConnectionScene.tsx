@@ -20,7 +20,6 @@ export const ConnectionScene: React.FC = () => {
 
             <div className="flex flex-wrap justify-center gap-4">
               <HighlightsChip icon={FaArrowRight} label={t('connection.chips.experience')} />
-              <HighlightsChip icon={FaArrowRight} label={t('connection.chips.award')} />
               <HighlightsChip icon={FaArrowRight} label={t('connection.chips.location')} />
             </div>
 
