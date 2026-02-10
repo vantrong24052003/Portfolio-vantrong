@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { SceneLayout } from '@/layouts';
 import { TimelineNodes, MilestoneCard } from '@/features/journey/components';
-import { milestones } from '@/features/journey/data';
+import { useMilestones } from '@/features/journey/data';
 
 export const JourneyScene: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(2);
+  const milestones = useMilestones();
 
   return (
     <SceneLayout>

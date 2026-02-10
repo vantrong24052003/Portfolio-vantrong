@@ -1,40 +1,42 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+const AVATAR_URL = "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=400&auto=format&fit=crop";
 
 export const IdentityGlitch: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col items-center text-center space-y-10 group">
-      {/* Avatar Wrapper */}
       <div className="relative w-24 h-24 md:w-32 md:h-32 mb-4">
-        {/* Pulsing Aura */}
         <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl animate-pulse" />
 
-        {/* Image Container */}
         <div className="relative w-full h-full rounded-full border-2 border-primary/50 bg-background-dark/80 flex items-center justify-center overflow-hidden transition-all duration-500 group-hover:border-primary">
           <img
-            src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=400&auto=format&fit=crop"
+            src={AVATAR_URL}
             alt="Identity Visualization"
             className="opacity-80 object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
           />
         </div>
 
-        {/* Readiness Badge */}
         <div className="absolute -bottom-2 -right-2 bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-lg border border-red-900 font-mono tracking-widest">
-          OP: READY
+          {t('connection.identity.ready')}
         </div>
       </div>
 
-      {/* Glitching Name */}
       <div className="space-y-4">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white transition-all duration-300 hover:text-primary cursor-default font-display relative inline-block group/glitch">
-          ĐOÀN VÕ VĂN TRỌNG
-          <span className="absolute inset-0 opacity-0 group-hover/glitch:opacity-20 group-hover/glitch:animate-[pulse_0.1s_infinite] pointer-events-none">ĐOÀN VÕ VĂN TRỌNG</span>
+          {t('nav.brand').toUpperCase()}
+          <span className="absolute inset-0 opacity-0 group-hover/glitch:opacity-20 group-hover/glitch:animate-[pulse_0.1s_infinite] pointer-events-none">
+            {t('nav.brand').toUpperCase()}
+          </span>
         </h1>
 
         <div className="flex items-center justify-center space-x-3 text-lg md:text-xl text-gray-400 font-mono">
           <span className="text-primary">&lt;</span>
-          <span className="hover:text-white transition-colors duration-300">Backend Developer</span>
+          <span className="hover:text-white transition-colors duration-300">{t('connection.identity.role')}</span>
           <span className="text-gray-600">|</span>
-          <span className="hover:text-white transition-colors duration-300">Ruby on Rails</span>
+          <span className="hover:text-white transition-colors duration-300">{t('connection.identity.framework')}</span>
           <span className="text-primary">/&gt;</span>
         </div>
       </div>

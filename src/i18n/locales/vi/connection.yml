@@ -1,0 +1,10 @@
+button: "Khởi tạo Liên hệ"
+chips:
+  experience: "~1 Năm RoR"
+  award: "Giải NCKH"
+  location: "Thành phố Đà Nẵng"
+techId: "ID: 8392-DEV-VN"
+identity:
+  ready: "TRẠNG THÁI: SẴN SÀNG"
+  role: "Lập trình viên Backend"
+  framework: "Ruby on Rails"

@@ -1,0 +1,35 @@
+projects:
+  nekoCinema:
+    title: "Neko Cinema"
+    category: "Full Stack"
+    systemId: "HỆ THỐNG 01"
+    description: "Nền tảng đặt vé có đồng thời cao. Triển khai logic đặt chỗ phức tạp với cập nhật trạng thái thời gian thực qua WebSocket."
+    stack:
+      - "Ruby on Rails"
+      - "Redis"
+      - "ActionCable"
+      - "PostgreSQL"
+  shopeeClone:
+    title: "Shopee Clone"
+    category: "Backend API"
+    systemId: "HỆ THỐNG 02"
+    description: "Backend thương mại điện tử có khả năng mở rộng. Thiết kế cho quản lý hàng tồn kho đa nhà cung cấp, logic giỏ hàng phức tạp và tối ưu tìm kiếm mờ."
+    stack:
+      - "Ruby on Rails"
+      - "ElasticSearch"
+      - "Docker"
+      - "JWT"
+  twitterApi:
+    title: "Twitter-like API"
+    category: "Mạng xã hội"
+    systemId: "HỆ THỐNG 03"
+    description: "Backend mạng xã hội mạnh mẽ. Tập trung mô hình hóa quan hệ (người theo dõi/đang theo dõi), thuật toán tạo feed phức tạp và xử lý media hiệu quả qua AWS."
+    stack:
+      - "GraphQL"
+      - "RSpec"
+      - "AWS S3"
+      - "ActiveRecord"
+stats:
+  title: "GẦN 1 NĂM"
+  subtitle: "Kinh nghiệm hệ thống"
+  repoTitle: "Kho dự án"

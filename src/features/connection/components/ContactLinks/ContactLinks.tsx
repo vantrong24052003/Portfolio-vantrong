@@ -6,10 +6,10 @@ const RevealLink: React.FC<RevealLinkProps> = ({ icon: Icon, value, href }) => {
   return (
     <a
       href={href}
-      className="group flex items-center justify-center bg-white/5 hover:bg-primary hover:text-white text-gray-300 p-3 rounded-xl transition-all duration-300 border border-white/5 hover:border-primary w-full md:w-auto overflow-hidden relative cursor-pointer"
+      className="group flex items-center gap-3 bg-white/5 hover:bg-primary hover:text-white text-gray-300 px-4 py-3 rounded-xl transition-all duration-300 border border-white/5 hover:border-primary w-full md:w-auto cursor-pointer"
     >
-      <Icon className="text-xl w-6 shrink-0" />
-      <span className="max-w-0 opacity-0 group-hover:max-w-[300px] group-hover:opacity-100 group-hover:ml-3 transition-all duration-500 ease-in-out font-mono text-sm whitespace-nowrap">
+      <Icon className="text-xl shrink-0" />
+      <span className="font-mono text-sm">
         {value}
       </span>
     </a>
@@ -21,15 +21,15 @@ export const ContactLinks: React.FC = () => {
     <div className="flex flex-col md:flex-row items-center justify-center gap-6 w-full max-w-2xl px-4 animate-in fade-in slide-in-from-bottom-10 duration-1000">
       <RevealLink
         icon={FaEnvelope}
-        value="contact@trongdoan.dev"
+        value="trongdn2405@gmail.com"
         label="Email"
-        href="mailto:contact@trongdoan.dev"
+        href="mailto:trongdn2405@gmail.com"
       />
       <RevealLink
         icon={FaPhoneAlt}
-        value="(+84) 999 999 999"
+        value="0357407264"
         label="Phone"
-        href="tel:+84999999999"
+        href="tel:+84357407264"
       />
       <RevealLink
         icon={FaGithub}

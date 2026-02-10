@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
+import './i18n';
 
 import { OverviewScene } from '@/features/overview'
 import { JourneyScene } from '@/features/journey'
@@ -11,9 +12,13 @@ const App: React.FC = () => {
   const isScrolling = useRef(false);
 
   const handleSceneChange = useCallback((newScene: number) => {
-    if (newScene >= 0 && newScene < scenes.length) {
-      setCurrentScene(newScene);
+    let targetScene = newScene;
+    if (newScene >= scenes.length) {
+      targetScene = 0;
+    } else if (newScene < 0) {
+      targetScene = scenes.length - 1;
     }
+    setCurrentScene(targetScene);
   }, []);
 
   useEffect(() => {
@@ -31,7 +36,7 @@ const App: React.FC = () => {
 
       setTimeout(() => {
         isScrolling.current = false;
-      }, 1000);
+      }, 600);
     };
 
     window.addEventListener('wheel', handleWheel);
@@ -52,22 +57,15 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-background-dark text-white selection:bg-primary/30 overflow-hidden">
       <SceneNavigator currentScene={currentScene} onSceneChange={setCurrentScene} />
 
-      {/* Scene Container with transition */}
       <div key={currentScene} className="animate-in fade-in duration-1000 h-screen">
         {renderScene()}
       </div>
 
-      {/* Footer Status */}
-      <footer className="fixed bottom-0 w-full z-50 p-6 pointer-events-none">
-        <div className="mx-auto flex justify-between items-end px-12">
-          <div className="text-[10px] font-mono text-gray-500 bg-background-dark/80 px-2 py-1 rounded backdrop-blur-sm pointer-events-auto">
-            SYSTEM: ONLINE // v2.4.0-build
-          </div>
-          <div className="hidden md:block text-[10px] font-mono text-gray-600 uppercase tracking-widest bg-background-dark/80 px-2 py-1 rounded backdrop-blur-sm pointer-events-auto">
-            Build for Scalability // D.V.V. Trong
-          </div>
-        </div>
-      </footer>
+      <div className="fixed bottom-8 right-8 z-50 flex items-center gap-2 bg-background-dark/80 backdrop-blur-md border border-primary/20 rounded-full px-4 py-2">
+        <span className="text-primary font-mono text-sm font-bold">{String(currentScene + 1).padStart(2, '0')}</span>
+        <span className="text-gray-500 font-mono text-xs">/</span>
+        <span className="text-gray-400 font-mono text-sm">{String(scenes.length).padStart(2, '0')}</span>
+      </div>
     </div>
   )
 }
