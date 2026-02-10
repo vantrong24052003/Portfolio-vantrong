@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@theme {
+  /* Colors */
+  --color-primary: #ec1e13;
+  --color-primary-dark: #b0120a;
+  --color-background-light: #f8f6f6;
+  --color-background-dark: #221110;
+  --color-surface-dark: #1a0d0c;
+  
+  /* Fonts */
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Transitions & Animations */
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  
+  @keyframes flow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+  
+  @keyframes scan {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% { top: 100%; opacity: 0; }
+  }
+}
+
+@utility glass-panel {
+  background: rgba(34, 17, 16, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(236, 30, 19, 0.2);
+}
+
+@utility scanline {
+  width: 100%;
+  height: 2px;
+  background: rgba(236, 30, 19, 0.3);
+  position: absolute;
+  animation: scan 4s linear infinite;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@layer base {
+  body {
+    @apply bg-background-dark text-white font-display overflow-hidden;
+  }
+}

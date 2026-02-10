@@ -1,0 +1,84 @@
+import React from 'react';
+import { FaGem, FaNodeJs, FaReact, FaVuejs, FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa';
+import { MdTerminal, MdArrowForwardIos } from 'react-icons/md';
+import type { TechBadgeProps, SocialLinkProps } from './types';
+
+const TechBadge: React.FC<TechBadgeProps> = ({ icon: Icon, label, colorClass, borderOnly = true }) => (
+  <div className={`flex items-center gap-2 ${borderOnly ? 'bg-gray-800/50 border border-gray-700' : 'bg-primary/10 border border-primary/30'} px-3 py-1.5 rounded text-sm group cursor-default transition-all duration-300 hover:border-primary/50`}>
+    <Icon className={`${colorClass || 'text-gray-400 group-hover:text-primary'}`} />
+    <span className={`font-mono ${borderOnly ? 'text-gray-300 group-hover:text-white' : 'text-primary font-semibold'}`}>
+      {label}
+    </span>
+  </div>
+);
+
+const SocialLink: React.FC<SocialLinkProps> = ({ icon: Icon, label, href = "#" }) => (
+  <a
+    href={href}
+    aria-label={label}
+    className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:border-primary hover:bg-primary/10 transition-all duration-300"
+  >
+    <Icon className="text-xl" />
+  </a>
+);
+
+export const IdentityModule: React.FC = () => {
+  return (
+    <section className="w-full lg:w-5/12 flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-8 duration-700">
+      <div className="glass-panel rounded-xl p-8 md:p-10 relative overflow-hidden group transition-colors duration-500 hover:border-primary/50">
+        {/* Decorative corner accents */}
+        <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary" />
+        <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary" />
+
+        <div className="space-y-6">
+          <div>
+            <h2 className="text-primary font-mono text-sm tracking-[0.2em] mb-2 flex items-center gap-2">
+              <MdTerminal className="text-base" />
+              BACKEND DEVELOPER
+            </h2>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mt-1">
+              ĐOÀN VÕ <br />
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-white to-gray-400">
+                VĂN TRỌNG
+              </span>
+            </h3>
+          </div>
+
+          <p className="text-gray-300 text-lg leading-relaxed border-l-2 border-primary/30 pl-4 font-display">
+            Architecting scalable server-side solutions with <span className="text-primary font-semibold">Ruby on Rails</span> efficiency and systems thinking. Transforming complex data flows into seamless digital experiences.
+          </p>
+
+          {/* Tech Stack Badges */}
+          <div className="flex flex-wrap gap-3 py-2">
+            <TechBadge icon={FaGem} label="Ruby" colorClass="text-primary" borderOnly={false} />
+            <TechBadge icon={FaNodeJs} label="Node.js" colorClass="text-green-500" />
+            <TechBadge icon={FaReact} label="React" colorClass="text-blue-400" />
+            <TechBadge icon={FaVuejs} label="Vue" colorClass="text-emerald-400" />
+          </div>
+
+          <div className="h-px w-full bg-linear-to-r from-primary/50 to-transparent my-2" />
+
+          {/* Footer Actions */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <button className="bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 rounded-lg shadow-[0_0_15px_rgba(236,30,19,0.4)] hover:shadow-[0_0_25px_rgba(236,30,19,0.6)] transition-all duration-300 flex items-center gap-2 group/btn">
+              <span>INITIALIZE CONTACT</span>
+              <MdArrowForwardIos className="group-hover/btn:translate-x-1 transition-transform text-sm" />
+            </button>
+            <div className="flex items-center gap-4">
+              <SocialLink icon={FaGithub} label="GitHub" />
+              <SocialLink icon={FaLinkedinIn} label="LinkedIn" />
+              <SocialLink icon={FaEnvelope} label="Email" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Floating Decorative Stats */}
+      <div className="flex justify-between px-2 text-xs font-mono text-gray-500 uppercase tracking-wider">
+        <div>ID: 84-DEV-BE</div>
+        <div>Status: Available</div>
+        <div>Loc: Vietnam</div>
+      </div>
+    </section>
+  );
+};
