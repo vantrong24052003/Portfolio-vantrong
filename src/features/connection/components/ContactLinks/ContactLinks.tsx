@@ -6,7 +6,7 @@ const RevealLink: React.FC<RevealLinkProps> = ({ icon: Icon, value, href }) => {
   return (
     <a
       href={href}
-      className="group flex items-center justify-center bg-white/5 hover:bg-primary hover:text-white text-gray-300 p-3 rounded-xl transition-all duration-300 border border-white/5 hover:border-primary w-full md:w-auto overflow-hidden relative"
+      className="group flex items-center justify-center bg-white/5 hover:bg-primary hover:text-white text-gray-300 p-3 rounded-xl transition-all duration-300 border border-white/5 hover:border-primary w-full md:w-auto overflow-hidden relative cursor-pointer"
     >
       <Icon className="text-xl w-6 shrink-0" />
       <span className="max-w-0 opacity-0 group-hover:max-w-[300px] group-hover:opacity-100 group-hover:ml-3 transition-all duration-500 ease-in-out font-mono text-sm whitespace-nowrap">

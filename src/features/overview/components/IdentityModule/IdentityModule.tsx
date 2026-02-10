@@ -16,7 +16,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ icon: Icon, label, href = "#" }
   <a
     href={href}
     aria-label={label}
-    className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:border-primary hover:bg-primary/10 transition-all duration-300"
+    className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:border-primary hover:bg-primary/10 transition-all duration-300 cursor-pointer"
   >
     <Icon className="text-xl" />
   </a>
@@ -60,7 +60,7 @@ export const IdentityModule: React.FC = () => {
 
           {/* Footer Actions */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <button className="bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 rounded-lg shadow-[0_0_15px_rgba(236,30,19,0.4)] hover:shadow-[0_0_25px_rgba(236,30,19,0.6)] transition-all duration-300 flex items-center gap-2 group/btn">
+            <button className="bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 rounded-lg shadow-[0_0_15px_rgba(236,30,19,0.4)] hover:shadow-[0_0_25px_rgba(236,30,19,0.6)] transition-all duration-300 flex items-center gap-2 group/btn cursor-pointer">
               <span>INITIALIZE CONTACT</span>
               <MdArrowForwardIos className="group-hover/btn:translate-x-1 transition-transform text-sm" />
             </button>

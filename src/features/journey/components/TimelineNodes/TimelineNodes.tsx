@@ -14,7 +14,7 @@ export const TimelineNodes: React.FC<TimelineNodesProps> = ({ milestones, active
             <button
               key={index}
               onClick={() => onSelect(index)}
-              className={`group relative flex flex-col lg:flex-row items-center lg:items-start gap-4 transition-all duration-300 focus:outline-none text-left`}
+              className={`group relative flex flex-col lg:flex-row items-center lg:items-start gap-4 transition-all duration-300 focus:outline-none text-left cursor-pointer`}
             >
               {/* Dot / Indicator */}
               <div className={`

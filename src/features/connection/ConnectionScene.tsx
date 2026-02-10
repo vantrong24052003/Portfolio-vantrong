@@ -29,7 +29,7 @@ export const ConnectionScene: React.FC = () => {
 
             {/* Primary CTA */}
             <div className="pt-6 w-full flex justify-center">
-              <button className="relative group overflow-hidden bg-primary text-white font-bold py-4 px-10 rounded-lg tracking-[0.2em] uppercase text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(236,30,19,0.5)] active:scale-95">
+              <button className="relative group overflow-hidden bg-primary text-white font-bold py-4 px-10 rounded-lg tracking-[0.2em] uppercase text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(236,30,19,0.5)] active:scale-95 cursor-pointer">
                 <span className="relative z-10 flex items-center gap-2">
                   Initialize Contact
                   <FaArrowRight className="group-hover:translate-x-1 transition-transform" />

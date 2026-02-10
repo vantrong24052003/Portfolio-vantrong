@@ -25,7 +25,7 @@ export const SceneNavigator: React.FC<SceneNavigatorProps> = ({ currentScene, on
             <button
               key={scene.id}
               onClick={() => onSceneChange(scene.id)}
-              className={`transition - all duration - 300 hover: text - primary ${currentScene === scene.id ? 'text-primary font-bold border-b border-primary/50 pb-1' : 'text-gray-400'
+              className={`transition - all duration - 300 hover: text - primary cursor-pointer ${currentScene === scene.id ? 'text-primary font-bold border-b border-primary/50 pb-1' : 'text-gray-400'
                 } `}
             >
               SCENE 0{scene.id + 1}: {scene.label}

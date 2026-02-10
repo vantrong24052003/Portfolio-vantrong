@@ -4,7 +4,7 @@ import type { ProjectCardProps } from './types';
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="glass-panel group rounded-xl overflow-hidden flex flex-col h-full transition-all duration-500 hover:border-primary/50 hover:-translate-y-2 relative">
+    <div className="glass-panel group rounded-xl overflow-hidden flex flex-col h-full transition-all duration-500 hover:border-primary/50 hover:-translate-y-2 relative cursor-pointer">
       {/* Background system label */}
       <div className="absolute top-2 right-4 text-[10px] text-primary/30 font-mono tracking-widest z-10 group-hover:text-primary transition-colors">
         {project.systemId}
@@ -21,10 +21,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
         {/* Action Overlay */}
         <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-background-dark/60 backdrop-blur-sm">
-          <button className="p-3 bg-primary text-white rounded-full hover:bg-red-700 transition-colors shadow-lg">
+          <button className="p-3 bg-primary text-white rounded-full hover:bg-red-700 transition-colors shadow-lg cursor-pointer">
             <MdVisibility className="text-xl" />
           </button>
-          <button className="p-3 bg-surface-dark border border-primary text-primary rounded-full hover:bg-primary/10 transition-colors shadow-lg">
+          <button className="p-3 bg-surface-dark border border-primary text-primary rounded-full hover:bg-primary/10 transition-colors shadow-lg cursor-pointer">
             <MdCode className="text-xl" />
           </button>
         </div>
