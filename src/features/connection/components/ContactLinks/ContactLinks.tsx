@@ -1,12 +1,12 @@
 import React from 'react';
-import { FaGithub, FaFacebookF, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaFacebookF, FaPhoneAlt, FaEnvelope, FaInstagram } from 'react-icons/fa';
 import type { RevealLinkProps } from './types';
 
 const RevealLink: React.FC<RevealLinkProps> = ({ icon: Icon, value, href }) => {
   return (
     <a
       href={href}
-      className="group flex items-center gap-3 bg-white/5 hover:bg-primary hover:text-white text-gray-300 px-4 py-3 rounded-xl transition-all duration-300 border border-white/5 hover:border-primary w-full md:w-auto cursor-pointer"
+      className="group flex items-center gap-3 bg-muted/50 hover:bg-primary hover:text-primary-foreground text-muted-foreground px-4 py-3 rounded-xl transition-all duration-300 border border-border hover:border-primary w-full md:w-auto cursor-pointer"
     >
       <Icon className="text-xl shrink-0" />
       <span className="font-mono text-sm">
@@ -33,15 +33,21 @@ export const ContactLinks: React.FC = () => {
       />
       <RevealLink
         icon={FaGithub}
-        value="github.com/trongdoan"
+        value="vantrong2405"
         label="GitHub"
-        href="#"
+        href="https://github.com/vantrong2405"
       />
       <RevealLink
         icon={FaFacebookF}
-        value="fb.com/trongdoan"
+        value="doanvo.vantrong"
         label="Facebook"
-        href="#"
+        href="https://www.facebook.com/doanvo.vantrong"
+      />
+      <RevealLink
+        icon={FaInstagram}
+        value="trongvan2405"
+        label="Instagram"
+        href="https://www.instagram.com/trongvan2405/"
       />
     </div>
   );

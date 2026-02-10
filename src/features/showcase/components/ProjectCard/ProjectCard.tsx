@@ -17,14 +17,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-background-dark/40 group-hover:bg-transparent transition-all duration-500" />
+        <div className="absolute inset-0 bg-background/40 group-hover:bg-transparent transition-all duration-500" />
 
         {/* Action Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-background-dark/60 backdrop-blur-sm">
-          <button className="p-3 bg-primary text-white rounded-full hover:bg-red-700 transition-colors shadow-lg cursor-pointer">
+        <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-background/60 backdrop-blur-sm">
+          <button className="p-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors shadow-lg cursor-pointer">
             <MdVisibility className="text-xl" />
           </button>
-          <button className="p-3 bg-surface-dark border border-primary text-primary rounded-full hover:bg-primary/10 transition-colors shadow-lg cursor-pointer">
+          <button className="p-3 bg-muted border border-primary text-primary rounded-full hover:bg-primary/10 transition-colors shadow-lg cursor-pointer">
             <MdCode className="text-xl" />
           </button>
         </div>
@@ -38,20 +38,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </span>
         </div>
 
-        <h3 className="text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-primary transition-colors">
+        <h3 className="text-2xl font-bold text-foreground mb-3 tracking-tight group-hover:text-primary transition-colors">
           {project.title}
         </h3>
 
-        <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow font-display">
+        <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow font-display">
           {project.description}
         </p>
 
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2 pt-4 border-t border-primary/10">
+        <div className="flex flex-wrap gap-2 pt-4 border-t border-border">
           {project.stack.map((tech, idx) => (
             <span
               key={idx}
-              className="text-[10px] px-2 py-0.5 rounded-sm border border-primary/20 text-gray-400 group-hover:text-primary group-hover:border-primary/40 transition-all duration-300 font-mono"
+              className="text-[10px] px-2 py-0.5 rounded-sm border border-border text-muted-foreground group-hover:text-primary group-hover:border-primary transition-all duration-300 font-mono"
             >
               {tech}
             </span>

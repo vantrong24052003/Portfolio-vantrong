@@ -11,13 +11,13 @@ export const MilestoneCard: React.FC<MilestoneCardProps> = ({ milestone }) => {
         <span className="material-symbols-outlined text-9xl text-primary transform rotate-12">history_edu</span>
       </div>
 
-      <div className="flex justify-between items-start mb-6 border-b border-primary/20 pb-4 relative z-10">
+      <div className="flex justify-between items-start mb-6 border-b border-border pb-4 relative z-10">
         <div>
           <div className="text-primary font-mono text-xs mb-1 uppercase tracking-widest">
             TIMESTAMP: {milestone.period}
           </div>
-          <h2 className="text-3xl font-bold text-white uppercase tracking-tight">{milestone.organization}</h2>
-          <h3 className="text-xl text-gray-300 font-light">{milestone.role}</h3>
+          <h2 className="text-3xl font-bold text-foreground uppercase tracking-tight">{milestone.organization}</h2>
+          <h3 className="text-xl text-muted-foreground font-light">{milestone.role}</h3>
         </div>
         <div className="h-10 w-10 rounded-full border border-primary/50 flex items-center justify-center bg-primary/10">
           <MdCode className="text-primary text-xl" />
@@ -25,15 +25,15 @@ export const MilestoneCard: React.FC<MilestoneCardProps> = ({ milestone }) => {
       </div>
 
       <div className="space-y-6 relative z-10 flex-grow">
-        <p className="text-gray-300 leading-relaxed font-display text-lg">
+        <p className="text-muted-foreground leading-relaxed font-display text-lg">
           {milestone.description}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-black/30 p-4 rounded border border-primary/10 hover:border-primary/30 transition-colors">
+          <div className="bg-muted p-4 rounded border border-border hover:border-primary transition-colors">
             <div className="flex items-center gap-2 mb-2">
               <MdApi className="text-primary text-sm" />
-              <span className="font-bold text-white text-sm">Core Stack</span>
+              <span className="font-bold text-foreground text-sm">Core Stack</span>
             </div>
             <div className="flex flex-wrap gap-2">
               {milestone.stack.map((tech, idx) => (
@@ -44,22 +44,23 @@ export const MilestoneCard: React.FC<MilestoneCardProps> = ({ milestone }) => {
             </div>
           </div>
 
-          <div className="bg-black/30 p-4 rounded border border-primary/10 hover:border-primary/30 transition-colors">
+          <div className="bg-muted p-4 rounded border border-border hover:border-primary transition-colors">
             <div className="flex items-center gap-2 mb-2">
               <MdStars className="text-primary text-sm" />
-              <span className="font-bold text-white text-sm">Key Achievement</span>
+              <span className="font-bold text-foreground text-sm">Key Achievement</span>
             </div>
-            <p className="text-sm text-gray-400 font-mono italic">
+            <p className="text-sm text-muted-foreground font-mono italic">
               {milestone.achievement}
             </p>
           </div>
         </div>
       </div>
 
-      <div className="mt-6 pt-4 border-t border-primary/10 flex justify-between items-center text-xs text-gray-500 font-mono relative z-10">
+      <div className="mt-6 pt-4 border-t border-border flex justify-between items-center text-xs text-muted-foreground/60 font-mono relative z-10">
         <span>STATUS: ACTIVE</span>
         <span>LOC: {milestone.location || 'DA NANG, VN'}</span>
       </div>
+
     </div>
   );
 };

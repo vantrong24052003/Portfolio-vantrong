@@ -21,7 +21,7 @@ export const TimelineNodes: React.FC<TimelineNodesProps> = ({ milestones, active
                 ${isActive ? 'w-6 h-6 -ml-3' : 'w-4 h-4 -ml-2'} 
                 absolute left-0 lg:static top-1/2 lg:top-auto -translate-y-1/2 lg:translate-y-0
                 rounded-full border-2 transition-all duration-500 z-10
-                ${isActive ? 'bg-primary border-background-dark shadow-[0_0_20px_rgba(236,30,19,0.6)]' : 'bg-surface-dark border-primary group-hover:bg-primary/50'}
+                ${isActive ? 'bg-primary border-background shadow-[0_0_20px_hsla(var(--primary)/0.6)]' : 'bg-muted border-primary group-hover:bg-primary/50'}
               `} />
 
               {/* Ping Animation for Active */}
@@ -31,18 +31,19 @@ export const TimelineNodes: React.FC<TimelineNodesProps> = ({ milestones, active
 
               {/* Label */}
               <div className="flex flex-col items-center lg:items-start mt-8 lg:mt-0">
-                <span className={`font-mono transition-all duration-300 ${isActive ? 'text-lg text-primary font-bold' : 'text-sm text-gray-500 group-hover:text-primary font-bold'}`}>
+                <span className={`font-mono transition-all duration-300 ${isActive ? 'text-lg text-primary font-bold' : 'text-sm text-muted-foreground group-hover:text-primary font-bold'}`}>
                   {milestone.year}
                 </span>
-                <span className={`text-[10px] uppercase tracking-wider transition-colors duration-300 ${isActive ? 'text-primary font-bold' : 'text-gray-600 group-hover:text-gray-300'}`}>
+                <span className={`text-[10px] uppercase tracking-wider transition-colors duration-300 ${isActive ? 'text-primary font-bold' : 'text-muted-foreground/80 group-hover:text-foreground'}`}>
                   {milestone.shortTitle}
                 </span>
                 {isActive && (
-                  <span className="text-[10px] text-gray-400 mt-1 animate-in fade-in slide-in-from-left-2 duration-500">
+                  <span className="text-[10px] text-muted-foreground/60 mt-1 animate-in fade-in slide-in-from-left-2 duration-500">
                     {milestone.subLabel || 'Current Role'}
                   </span>
                 )}
               </div>
+
             </button>
           );
         })}

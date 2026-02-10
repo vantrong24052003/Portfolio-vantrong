@@ -6,6 +6,8 @@ import { JourneyScene } from '@/features/journey'
 import { ShowcaseScene } from '@/features/showcase'
 import { ConnectionScene } from '@/features/connection'
 import { SceneNavigator, scenes } from '@/layouts'
+import { ThemeSwitcher } from '@/features/theme/components/ThemeSwitcher/ThemeSwitcher'
+import { LanguageSwitcher } from '@/layouts/LanguageSwitcher'
 
 const App: React.FC = () => {
   const [currentScene, setCurrentScene] = useState(0)
@@ -54,20 +56,26 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background-dark text-white selection:bg-primary/30 overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 overflow-hidden">
       <SceneNavigator currentScene={currentScene} onSceneChange={setCurrentScene} />
 
       <div key={currentScene} className="animate-in fade-in duration-1000 h-screen">
         {renderScene()}
       </div>
 
-      <div className="fixed bottom-8 right-8 z-50 flex items-center gap-2 bg-background-dark/80 backdrop-blur-md border border-primary/20 rounded-full px-4 py-2">
-        <span className="text-primary font-mono text-sm font-bold">{String(currentScene + 1).padStart(2, '0')}</span>
-        <span className="text-gray-500 font-mono text-xs">/</span>
-        <span className="text-gray-400 font-mono text-sm">{String(scenes.length).padStart(2, '0')}</span>
+      <div className="fixed bottom-8 right-8 z-50 flex items-center gap-4">
+        <LanguageSwitcher />
+        <ThemeSwitcher />
+
+        <div className="hidden sm:flex items-center gap-2 bg-card/80 backdrop-blur-md border border-border rounded-full px-4 py-2">
+          <span className="text-primary font-mono text-sm font-bold">{String(currentScene + 1).padStart(2, '0')}</span>
+          <span className="text-muted-foreground font-mono text-xs">/</span>
+          <span className="text-muted-foreground font-mono text-sm">{String(scenes.length).padStart(2, '0')}</span>
+        </div>
       </div>
     </div>
   )
 }
+
 
 export default App

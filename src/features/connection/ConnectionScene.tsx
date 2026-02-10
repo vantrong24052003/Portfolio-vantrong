@@ -29,12 +29,12 @@ export const ConnectionScene: React.FC = () => {
             <ContactLinks />
 
             <div className="pt-6 w-full flex justify-center">
-              <button className="relative group overflow-hidden bg-primary text-white font-bold py-4 px-10 rounded-lg tracking-[0.2em] uppercase text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(236,30,19,0.5)] active:scale-95 cursor-pointer">
+              <button className="relative group overflow-hidden bg-primary text-primary-foreground font-bold py-4 px-10 rounded-lg tracking-[0.2em] uppercase text-sm transition-all duration-300 hover:shadow-[0_0_20px_hsla(var(--primary)/0.5)] active:scale-95 cursor-pointer">
                 <span className="relative z-10 flex items-center gap-2">
                   {t('connection.button')}
                   <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
                 </span>
-                <div className="absolute inset-0 h-full w-full scale-0 rounded-lg transition-all duration-300 group-hover:scale-100 group-hover:bg-red-700/50" />
+                <div className="absolute inset-0 h-full w-full scale-0 rounded-lg transition-all duration-300 group-hover:scale-100 group-hover:bg-accent/20" />
               </button>
             </div>
           </div>

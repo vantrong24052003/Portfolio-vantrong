@@ -1,13 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaGem, FaNodeJs, FaReact, FaVuejs, FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa';
+import { FaGem, FaNodeJs, FaReact, FaVuejs, FaGithub, FaFacebook, FaEnvelope, FaInstagram } from 'react-icons/fa';
 import { MdTerminal, MdArrowForwardIos } from 'react-icons/md';
 import type { TechBadgeProps, SocialLinkProps } from './types';
 
 const TechBadge: React.FC<TechBadgeProps> = ({ icon: Icon, label, colorClass, borderOnly = true }) => (
-  <div className={`flex items-center gap-2 ${borderOnly ? 'bg-gray-800/50 border border-gray-700' : 'bg-primary/10 border border-primary/30'} px-3 py-1.5 rounded text-sm group cursor-default transition-all duration-300 hover:border-primary/50`}>
-    <Icon className={`${colorClass || 'text-gray-400 group-hover:text-primary'}`} />
-    <span className={`font-mono ${borderOnly ? 'text-gray-300 group-hover:text-white' : 'text-primary font-semibold'}`}>
+  <div className={`flex items-center gap-2 ${borderOnly ? 'bg-muted/50 border border-border' : 'bg-primary/10 border border-primary/30'} px-3 py-1.5 rounded text-sm group cursor-default transition-all duration-300 hover:border-primary/50`}>
+    <Icon className={`${colorClass || 'text-muted-foreground group-hover:text-primary'}`} />
+    <span className={`font-mono ${borderOnly ? 'text-muted-foreground group-hover:text-foreground' : 'text-primary font-semibold'}`}>
       {label}
     </span>
   </div>
@@ -17,7 +17,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ icon: Icon, label, href = "#" }
   <a
     href={href}
     aria-label={label}
-    className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:border-primary hover:bg-primary/10 transition-all duration-300 cursor-pointer"
+    className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary hover:bg-primary/10 transition-all duration-300 cursor-pointer"
   >
     <Icon className="text-xl" />
   </a>
@@ -39,15 +39,15 @@ export const IdentityModule: React.FC = () => {
               <MdTerminal className="text-base" />
               {t('overview.title')}
             </h2>
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mt-1">
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mt-1">
               {t('nav.brand').split(' ').slice(0, 2).join(' ')} <br />
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-white to-gray-400">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-foreground to-muted-foreground">
                 {t('nav.brand').split(' ').slice(2).join(' ')}
               </span>
             </h3>
           </div>
 
-          <p className="text-gray-300 text-lg leading-relaxed border-l-2 border-primary/30 pl-4 font-display">
+          <p className="text-muted-foreground text-lg leading-relaxed border-l-2 border-primary/30 pl-4 font-display">
             {t('overview.bio').split('{{framework}}')[0]}
             <span className="text-primary font-semibold">{t('overview.framework')}</span>
             {t('overview.bio').split('{{framework}}')[1]}
@@ -65,21 +65,22 @@ export const IdentityModule: React.FC = () => {
 
           {/* Footer Actions */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <button className="bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 rounded-lg shadow-[0_0_15px_rgba(236,30,19,0.4)] hover:shadow-[0_0_25px_rgba(236,30,19,0.6)] transition-all duration-300 flex items-center gap-2 group/btn cursor-pointer">
+            <button className="bg-primary hover:bg-primary-dark text-primary-foreground font-bold py-3 px-8 rounded-lg shadow-[0_0_15px_hsla(var(--primary)/0.4)] hover:shadow-[0_0_25px_hsla(var(--primary)/0.6)] transition-all duration-300 flex items-center gap-2 group/btn cursor-pointer">
               <span>{t('overview.button')}</span>
               <MdArrowForwardIos className="group-hover/btn:translate-x-1 transition-transform text-sm" />
             </button>
             <div className="flex items-center gap-4">
-              <SocialLink icon={FaGithub} label="GitHub" />
-              <SocialLink icon={FaLinkedinIn} label="LinkedIn" />
-              <SocialLink icon={FaEnvelope} label="Email" />
+              <SocialLink icon={FaGithub} label="GitHub" href="https://github.com/vantrong2405" />
+              <SocialLink icon={FaFacebook} label="Facebook" href="https://www.facebook.com/doanvo.vantrong" />
+              <SocialLink icon={FaInstagram} label="Instagram" href="https://www.instagram.com/trongvan2405/" />
+              <SocialLink icon={FaEnvelope} label="Email" href="mailto:trongdn2405@gmail.com" />
             </div>
           </div>
         </div>
       </div>
 
       {/* Floating Decorative Stats */}
-      <div className="flex justify-between px-2 text-xs font-mono text-gray-500 uppercase tracking-wider">
+      <div className="flex justify-between px-2 text-xs font-mono text-muted-foreground uppercase tracking-wider">
         <div>{t('overview.stats.id')}</div>
         <div>{t('overview.stats.status')}</div>
         <div>{t('overview.stats.location')}</div>
