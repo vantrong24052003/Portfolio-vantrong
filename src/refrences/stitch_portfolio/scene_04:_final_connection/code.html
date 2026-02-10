@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Scene 04: Final Connection - Đoàn Võ Văn Trọng</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ec1e13",
+              "background-light": "#f8f6f6",
+              "background-dark": "#221110",
+              "surface-dark": "#1a0d0c",
+            },
+            fontFamily: {
+              "display": ["Space Grotesk", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            animation: {
+                'flow': 'flow 20s linear infinite',
+                'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+                flow: {
+                    '0%': { backgroundPosition: '0% 50%' },
+                    '100%': { backgroundPosition: '100% 50%' },
+                }
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom Styles for Digital River Effect */
+        .digital-river-bg {
+            background-color: #221110;
+            background-image: 
+                linear-gradient(rgba(236, 30, 19, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(236, 30, 19, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .digital-river-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(236, 30, 19, 0.15) 0%, transparent 70%);
+            animation: pulse-slow 4s infinite;
+        }
+
+        .glass-panel {
+            background: rgba(34, 17, 16, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(236, 30, 19, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .icon-hover-reveal:hover .reveal-text {
+            opacity: 1;
+            transform: translateX(0);
+            max-width: 200px;
+            margin-left: 0.5rem;
+        }
+        
+        .reveal-text {
+            opacity: 0;
+            transform: translateX(-10px);
+            max-width: 0;
+            transition: all 0.3s ease-in-out;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(236, 30, 19, 0.3);
+            position: absolute;
+            animation: scan 4s linear infinite;
+            top: 0;
+            left: 0;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { top: 100%; opacity: 0; }
+        }
+        
+        /* Glitch effect on hover for the name */
+        .glitch-hover:hover {
+            animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+            color: #ec1e13;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white h-screen overflow-hidden flex flex-col relative digital-river-bg">
+<!-- Scanline Effect -->
+<div class="scanline z-0"></div>
+<!-- Decorative elements representing data flow -->
+<div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute top-1/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+<div class="absolute bottom-1/3 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/10 to-transparent"></div>
+<div class="absolute top-0 right-1/4 h-full w-[1px] bg-gradient-to-b from-transparent via-primary/10 to-transparent"></div>
+</div>
+<!-- Main Content Container -->
+<main class="flex-grow flex items-center justify-center relative z-10 px-4 sm:px-6 lg:px-8">
+<!-- Glass Panel -->
+<div class="glass-panel w-full max-w-4xl p-8 md:p-12 lg:p-16 rounded-2xl relative overflow-hidden group">
+<!-- Technical accents on the card -->
+<div class="absolute top-0 left-0 w-32 h-32 border-l-2 border-t-2 border-primary/40 rounded-tl-2xl -translate-x-1 -translate-y-1"></div>
+<div class="absolute bottom-0 right-0 w-32 h-32 border-r-2 border-b-2 border-primary/40 rounded-br-2xl translate-x-1 translate-y-1"></div>
+<div class="absolute top-4 right-4 text-xs text-primary/60 font-mono tracking-widest">ID: 8392-DEV-VN</div>
+<div class="flex flex-col items-center text-center space-y-10">
+<!-- Avatar / Identity Symbol -->
+<div class="relative w-24 h-24 md:w-32 md:h-32 mb-4">
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-xl animate-pulse"></div>
+<div class="relative w-full h-full rounded-full border-2 border-primary/50 bg-background-dark/80 flex items-center justify-center overflow-hidden">
+<img alt="Abstract code visualization glowing red on dark screen" class="opacity-80 object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500" data-alt="Abstract code visualization glowing red on dark screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoqmafn8rs-Os0_M5rtUf_iYF7psG7KwQltLUkknQSynWmMFnzlNV6V4EGWMp1B3zCloyT63bEUYJdTf1CYoF8kt3pd1HgzobHuJTtTmz-py-4RvHRH4AGYtvpjV26Plo07Bio92LHlo4f3PCC-qIAf1Rl_Lj7EtgkvUeJ0PFzO6QrQvoc0e5non71Hn-ADD881GxtRuiRIDNFto7LLRG5RdwomYaH69iPZV9rAYNvKkj7yydLLf9cHKLBmLVeCu0h7GD5Xmc46qc"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-primary text-white text-xs px-2 py-0.5 rounded shadow-lg border border-red-900">
+                        OP: READY
+                    </div>
+</div>
+<!-- Name & Role -->
+<div class="space-y-4">
+<h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white glitch-hover cursor-default">
+                        ĐOÀN VÕ VĂN TRỌNG
+                    </h1>
+<div class="flex items-center justify-center space-x-3 text-lg md:text-xl text-gray-400 font-mono">
+<span class="text-primary">&lt;</span>
+<span>Backend Developer</span>
+<span class="text-gray-600">|</span>
+<span>Ruby on Rails</span>
+<span class="text-primary">/&gt;</span>
+</div>
+</div>
+<!-- Highlights Chips -->
+<div class="flex flex-wrap justify-center gap-4">
+<div class="flex items-center space-x-2 bg-background-dark/50 border border-white/10 px-4 py-2 rounded-lg hover:border-primary/50 transition-colors cursor-default">
+<i class="fas fa-code text-primary"></i>
+<span class="text-sm font-medium tracking-wide">~1 Year RoR</span>
+</div>
+<div class="flex items-center space-x-2 bg-background-dark/50 border border-white/10 px-4 py-2 rounded-lg hover:border-primary/50 transition-colors cursor-default">
+<i class="fas fa-trophy text-primary"></i>
+<span class="text-sm font-medium tracking-wide">NCKH Award</span>
+</div>
+<div class="flex items-center space-x-2 bg-background-dark/50 border border-white/10 px-4 py-2 rounded-lg hover:border-primary/50 transition-colors cursor-default">
+<i class="fas fa-map-marker-alt text-primary"></i>
+<span class="text-sm font-medium tracking-wide">Da Nang City</span>
+</div>
+</div>
+<!-- Divider -->
+<div class="w-24 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent rounded-full"></div>
+<!-- Interactive Contacts Row -->
+<div class="flex flex-col md:flex-row items-center justify-center gap-6 w-full max-w-2xl">
+<!-- Email -->
+<a class="icon-hover-reveal group flex items-center justify-center bg-white/5 hover:bg-primary hover:text-white text-gray-300 p-3 rounded-xl transition-all duration-300 border border-white/5 hover:border-primary w-full md:w-auto" href="mailto:contact@trongdoan.dev">
+<i class="fas fa-envelope text-xl w-6 text-center"></i>
+<span class="reveal-text font-mono text-sm">contact@trongdoan.dev</span>
+</a>
+<!-- Phone -->
+<a class="icon-hover-reveal group flex items-center justify-center bg-white/5 hover:bg-primary hover:text-white text-gray-300 p-3 rounded-xl transition-all duration-300 border border-white/5 hover:border-primary w-full md:w-auto" href="tel:+84999999999">
+<i class="fas fa-phone text-xl w-6 text-center"></i>
+<span class="reveal-text font-mono text-sm">(+84) 999 999 999</span>
+</a>
+<!-- Github -->
+<a class="icon-hover-reveal group flex items-center justify-center bg-white/5 hover:bg-primary hover:text-white text-gray-300 p-3 rounded-xl transition-all duration-300 border border-white/5 hover:border-primary w-full md:w-auto" href="#">
+<i class="fab fa-github text-xl w-6 text-center"></i>
+<span class="reveal-text font-mono text-sm">github.com/trongdoan</span>
+</a>
+<!-- Facebook -->
+<a class="icon-hover-reveal group flex items-center justify-center bg-white/5 hover:bg-primary hover:text-white text-gray-300 p-3 rounded-xl transition-all duration-300 border border-white/5 hover:border-primary w-full md:w-auto" href="#">
+<i class="fab fa-facebook text-xl w-6 text-center"></i>
+<span class="reveal-text font-mono text-sm">fb.com/trongdoan</span>
+</a>
+</div>
+<!-- Primary CTA -->
+<div class="pt-6 w-full flex justify-center">
+<button class="relative group overflow-hidden bg-primary text-white font-bold py-4 px-10 rounded-lg tracking-widest uppercase text-sm hover:shadow-[0_0_20px_rgba(236,30,19,0.5)] transition-all duration-300">
+<span class="relative z-10 flex items-center gap-2">
+                            Initialize Contact
+                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+</span>
+<div class="absolute inset-0 h-full w-full scale-0 rounded-lg transition-all duration-300 group-hover:scale-100 group-hover:bg-red-700/50"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Note -->
+<div class="absolute bottom-6 text-center w-full z-10 opacity-40 hover:opacity-100 transition-opacity duration-300">
+<p class="text-xs font-mono text-primary">SYSTEM STATUS: ALL SYSTEMS OPERATIONAL</p>
+</div>
+</main>
+<!-- Background Map Hint (Subtle Decoration) -->
+<div class="absolute bottom-0 right-0 w-1/3 h-1/3 opacity-5 pointer-events-none mix-blend-screen z-0">
+<img alt="Stylized dark map of Da Nang city layout" class="w-full h-full object-cover mask-image-gradient" data-alt="Stylized dark map of Da Nang city layout" data-location="Da Nang" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1eAZve5uEBMW7vrGmSALHP6EWMSZmf_4N6vKj_CJ6RLbumPBRBInQVDYl9FPVU4439NRNabD0x938JM2f-AJXfikh9Jp0eryrppLkTXd_eZG2-rWLVaphg1gmGJt3y4mowfe8GMCaXwzcKWbRlzkprjl28qj8jlrzyC-q5RA9X19BS5PfnGRZwcfC2itaSUzT_AZb8jDsSnu1lcmBO5IGy6VXOQRBKnyx5_qLlglCgi0CZz8-a5_xoys4aCRTie1ost-15Y1ulcM"/>
+</div>
+</body></html>
