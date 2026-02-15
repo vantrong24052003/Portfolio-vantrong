@@ -1,18 +1,17 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import './i18n';
 
 import { OverviewScene } from '@/features/overview'
 import { JourneyScene } from '@/features/journey'
 import { ShowcaseScene } from '@/features/showcase'
 import { ConnectionScene } from '@/features/connection'
-import { SceneNavigator, scenes } from '@/layouts'
+import { SystemHeader, scenes, SceneNavigation } from '@/layouts'
 import { ThemeSwitcher } from '@/features/theme/components/ThemeSwitcher/ThemeSwitcher'
 import { LanguageSwitcher } from '@/layouts/LanguageSwitcher'
+import { CameraWarpContainer } from '@/shared/components/Motion/CameraWarpContainer'
 
 const App: React.FC = () => {
   const [currentScene, setCurrentScene] = useState(0)
-  const isScrolling = useRef(false);
-
   const handleSceneChange = useCallback((newScene: number) => {
     let targetScene = newScene;
     if (newScene >= scenes.length) {
@@ -24,25 +23,16 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      if (isScrolling.current) return;
-
-      if (Math.abs(e.deltaY) < 30) return;
-
-      isScrolling.current = true;
-      if (e.deltaY > 0) {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') {
         handleSceneChange(currentScene + 1);
-      } else {
+      } else if (e.key === 'ArrowLeft') {
         handleSceneChange(currentScene - 1);
       }
-
-      setTimeout(() => {
-        isScrolling.current = false;
-      }, 600);
     };
 
-    window.addEventListener('wheel', handleWheel);
-    return () => window.removeEventListener('wheel', handleWheel);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [currentScene, handleSceneChange]);
 
   const renderScene = () => {
@@ -56,12 +46,19 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 overflow-hidden">
-      <SceneNavigator currentScene={currentScene} onSceneChange={setCurrentScene} />
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 overflow-hidden text-balance">
+      <SystemHeader currentScene={currentScene} onSceneChange={setCurrentScene} />
 
-      <div key={currentScene} className="animate-in fade-in duration-1000 h-screen overflow-y-auto custom-scrollbar">
-        {renderScene()}
+      <div className="h-screen overflow-y-auto overflow-x-hidden custom-scrollbar pt-16">
+        <CameraWarpContainer sceneKey={currentScene}>
+          {renderScene()}
+        </CameraWarpContainer>
       </div>
+
+      <SceneNavigation
+        onNext={() => handleSceneChange(currentScene + 1)}
+        onPrev={() => handleSceneChange(currentScene - 1)}
+      />
 
       <div className="fixed bottom-8 right-8 z-50 flex items-center gap-4">
         <LanguageSwitcher />

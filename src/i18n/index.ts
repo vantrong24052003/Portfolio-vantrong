@@ -19,6 +19,7 @@ const loadYamlTranslations = async (lang: string) => {
     journey: await import(`./locales/${lang}/journey.yml?raw`),
     showcase: await import(`./locales/${lang}/showcase.yml?raw`),
     connection: await import(`./locales/${lang}/connection.yml?raw`),
+    common: await import(`./locales/${lang}/common.yml?raw`),
   };
 
   const translations: Record<string, unknown> = {};

@@ -1,0 +1,20 @@
+theme:
+  title: "Change Theme"
+  mode: "Mode"
+  dark: "Dark"
+  light: "Light"
+palettes:
+  red: "Red"
+  blue: "Blue"
+  green: "Green"
+  purple: "Purple"
+  orange: "Orange"
+  pink: "Pink"
+language:
+  title: "Change Language"
+languages:
+  en: "English"
+  vi: "Vietnamese"
+navigation:
+  next: "NEXT"
+  prev: "PREV"

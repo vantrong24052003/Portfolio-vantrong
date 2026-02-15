@@ -1,8 +1,10 @@
 import React from 'react';
-import { MdCode, MdApi, MdStars } from 'react-icons/md';
+import { useTranslation } from 'react-i18next';
+import { MdCode, MdApi } from 'react-icons/md';
 import type { MilestoneCardProps } from './types';
 
 export const MilestoneCard: React.FC<MilestoneCardProps> = ({ milestone }) => {
+  const { t } = useTranslation();
   if (!milestone) return null;
 
   return (
@@ -14,7 +16,7 @@ export const MilestoneCard: React.FC<MilestoneCardProps> = ({ milestone }) => {
       <div className="flex justify-between items-start mb-6 border-b border-border pb-4 relative z-10">
         <div>
           <div className="text-primary font-mono text-xs mb-1 uppercase tracking-widest">
-            TIMESTAMP: {milestone.period}
+            {t('journey.card.timestampLabel')} {milestone.period}
           </div>
           <h2 className="text-3xl font-bold text-foreground uppercase tracking-tight">{milestone.organization}</h2>
           <h3 className="text-xl text-muted-foreground font-light">{milestone.role}</h3>
@@ -33,7 +35,7 @@ export const MilestoneCard: React.FC<MilestoneCardProps> = ({ milestone }) => {
           <div className="bg-muted p-4 rounded border border-border hover:border-primary transition-colors">
             <div className="flex items-center gap-2 mb-2">
               <MdApi className="text-primary text-sm" />
-              <span className="font-bold text-foreground text-sm">Core Stack</span>
+              <span className="font-bold text-foreground text-sm">{t('journey.card.coreStack')}</span>
             </div>
             <div className="flex flex-wrap gap-2">
               {milestone.stack.map((tech, idx) => (
@@ -44,21 +46,19 @@ export const MilestoneCard: React.FC<MilestoneCardProps> = ({ milestone }) => {
             </div>
           </div>
 
-          <div className="bg-muted p-4 rounded border border-border hover:border-primary transition-colors">
-            <div className="flex items-center gap-2 mb-2">
-              <MdStars className="text-primary text-sm" />
-              <span className="font-bold text-foreground text-sm">Key Achievement</span>
+          {milestone.achievement && (
+            <div className="bg-muted p-4 rounded border border-border hover:border-primary transition-colors">
+              <p className="text-sm text-muted-foreground font-mono italic">
+                {milestone.achievement}
+              </p>
             </div>
-            <p className="text-sm text-muted-foreground font-mono italic">
-              {milestone.achievement}
-            </p>
-          </div>
+          )}
         </div>
       </div>
 
       <div className="mt-6 pt-4 border-t border-border flex justify-between items-center text-xs text-muted-foreground/60 font-mono relative z-10">
-        <span>STATUS: ACTIVE</span>
-        <span>LOC: {milestone.location || 'DA NANG, VN'}</span>
+        <span>{t('journey.card.statusActive')}</span>
+        <span>{t('journey.card.locLabel')} {milestone.location || t('journey.card.defaultLocation')}</span>
       </div>
 
     </div>

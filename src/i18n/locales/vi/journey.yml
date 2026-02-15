@@ -12,7 +12,8 @@ milestones:
       - "C++"
       - "Cấu trúc Dữ liệu"
       - "Thuật toán"
-    achievement: "Bắt đầu hành trình chinh phục thế giới công nghệ."
+      - ".NET"
+    achievement: ""
   intern:
     year: "2023"
     shortTitle: "Hỗ trợ Laravel"
@@ -26,7 +27,7 @@ milestones:
       - "PHP"
       - "MySQL"
       - "VueJS"
-    achievement: "Hỗ trợ hơn 50+ học viên nắm vững kiến thức backend backend cơ bản."
+    achievement: ""
   current:
     year: "2025"
     shortTitle: "Tomosia"
@@ -41,5 +42,11 @@ milestones:
       - "Redis"
       - "Docker"
       - "React"
-    achievement: "Tái cấu trúc codebase cũ giảm thời gian phản hồi server 40%."
+    achievement: ""
     location: "ĐÀ NẴNG, VN"
+card:
+  timestampLabel: "THỜI GIAN:"
+  coreStack: "Công nghệ cốt lõi"
+  statusActive: "TRẠNG THÁI: HOẠT ĐỘNG"
+  locLabel: "VỊ TRÍ:"
+  defaultLocation: "ĐÀ NẴNG, VN"

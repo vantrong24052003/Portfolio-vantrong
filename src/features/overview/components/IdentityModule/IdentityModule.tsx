@@ -29,7 +29,7 @@ export const IdentityModule: React.FC<{ onContactClick?: () => void }> = ({ onCo
   const { t } = useTranslation();
 
   return (
-    <section className="w-full lg:w-7/12 flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-8 duration-700">
+    <section className="w-full lg:w-7/12 flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-8 duration-700 transform-gpu">
       <div className="glass-panel rounded-xl p-8 md:p-10 relative overflow-hidden group transition-colors duration-500 hover:border-primary/50">
         {/* Decorative corner accents */}
         <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary" />
@@ -41,9 +41,11 @@ export const IdentityModule: React.FC<{ onContactClick?: () => void }> = ({ onCo
               <MdTerminal className="text-base" />
               {t('overview.title')}
             </h2>
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mt-1">
-              {t('nav.brand').split(' ').slice(0, 2).join(' ')} <br />
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-foreground to-muted-foreground">
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mt-1 cursor-default">
+              <span className="hover:animate-glitch hover:glow-ruby transition-all duration-100 block">
+                {t('nav.brand').split(' ').slice(0, 2).join(' ')}
+              </span>
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-foreground to-muted-foreground hover:animate-glitch hover:glow-ruby transition-all duration-100 block">
                 {t('nav.brand').split(' ').slice(2).join(' ')}
               </span>
             </h3>
@@ -71,7 +73,7 @@ export const IdentityModule: React.FC<{ onContactClick?: () => void }> = ({ onCo
                 <FaTrophy className="text-xl" />
               </div>
               <div>
-                <div className="text-[10px] font-mono text-accent/60 uppercase tracking-widest">Scientific Research</div>
+                <div className="text-[10px] font-mono text-accent/60 uppercase tracking-widest">{t('overview.achievements.scientificResearch')}</div>
                 <div className="text-sm font-bold text-foreground">{t('overview.achievements.nckh')}</div>
               </div>
             </div>
@@ -111,10 +113,10 @@ export const IdentityModule: React.FC<{ onContactClick?: () => void }> = ({ onCo
               </a>
             </div>
             <div className="flex items-center gap-4">
-              <SocialLink icon={FaGithub} label="GitHub" href="https://github.com/vantrong2405" />
-              <SocialLink icon={FaFacebook} label="Facebook" href="https://www.facebook.com/doanvo.vantrong" />
-              <SocialLink icon={FaInstagram} label="Instagram" href="https://www.instagram.com/trongvan2405/" />
-              <SocialLink icon={FaEnvelope} label="Email" href="mailto:trongdn2405@gmail.com" />
+              <SocialLink icon={FaGithub} label={t('connection.labels.github')} href="https://github.com/vantrong2405" />
+              <SocialLink icon={FaFacebook} label={t('connection.labels.facebook')} href="https://www.facebook.com/doanvo.vantrong" />
+              <SocialLink icon={FaInstagram} label={t('connection.labels.instagram')} href="https://www.instagram.com/trongvan2405/" />
+              <SocialLink icon={FaEnvelope} label={t('connection.labels.email')} href="mailto:trongdn2405@gmail.com" />
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@ export const IdentityGlitch: React.FC = () => {
         <div className="relative w-full h-full rounded-full border-2 border-primary/50 bg-background-dark/80 flex items-center justify-center overflow-hidden transition-all duration-500 group-hover:border-primary">
           <img
             src={AVATAR_URL}
-            alt="Identity Visualization"
+            alt={t('connection.identity.visualization')}
             className="opacity-100 object-cover w-full h-full transition-all duration-500"
           />
         </div>

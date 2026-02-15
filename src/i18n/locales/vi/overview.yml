@@ -14,7 +14,8 @@ stats:
   status: "Trạng thái: Sẵn sàng"
   location: "Vị trí: Việt Nam"
 achievements:
-  honors: "Tốt nghiệp loại Giỏi"
+  honors: "Tốt nghiệp loại Giỏi - DTU"
+  scientificResearch: "Nghiên cứu khoa học"
   nckh: "NCKH: Giải Nhì cấp Trường"
 codeEditor:
   fileName: "identity_controller.rb"
@@ -22,3 +23,6 @@ codeEditor:
   errors: "0 lỗi"
   lineCol: "Dòng 18, Cột 5"
   spaces: "Dấu cách: 2"
+  branch: "main*"
+  encoding: "UTF-8"
+  language: "Ruby"

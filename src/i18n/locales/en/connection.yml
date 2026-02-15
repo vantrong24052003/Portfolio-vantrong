@@ -7,3 +7,10 @@ identity:
   ready: "OP: READY"
   role: "Backend Developer"
   framework: "Ruby on Rails"
+  visualization: "Identity Visualization"
+labels:
+  email: "Email"
+  phone: "Phone"
+  github: "GitHub"
+  facebook: "Facebook"
+  instagram: "Instagram"

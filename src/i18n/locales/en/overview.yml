@@ -14,7 +14,8 @@ stats:
   status: "Status: Available"
   location: "Loc: Vietnam"
 achievements:
-  honors: "Graduated with Honors"
+  honors: "Graduated with Honors - DTU"
+  scientificResearch: "Scientific Research"
   nckh: "NCKH: 2nd Prize Winner"
 codeEditor:
   fileName: "identity_controller.rb"
@@ -22,3 +23,6 @@ codeEditor:
   errors: "0 errors"
   lineCol: "Ln 18, Col 5"
   spaces: "Spaces: 2"
+  branch: "main*"
+  encoding: "UTF-8"
+  language: "Ruby"

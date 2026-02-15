@@ -12,7 +12,8 @@ milestones:
       - "C++"
       - "Data Structures"
       - "Algorithms"
-    achievement: "Starting the journey in the world of technology."
+      - ".NET"
+    achievement: ""
   intern:
     year: "2023"
     shortTitle: "Laravel Support"
@@ -26,7 +27,7 @@ milestones:
       - "PHP"
       - "MySQL"
       - "VueJS"
-    achievement: "Supported 50+ students in mastering backend fundamentals."
+    achievement: ""
   current:
     year: "2025"
     shortTitle: "Tomosia"
@@ -41,5 +42,11 @@ milestones:
       - "Redis"
       - "Docker"
       - "React"
-    achievement: "Refactored legacy codebase reducing server response time by 40%."
+    achievement: ""
     location: "DA NANG, VN"
+card:
+  timestampLabel: "TIMESTAMP:"
+  coreStack: "Core Stack"
+  statusActive: "STATUS: ACTIVE"
+  locLabel: "LOC:"
+  defaultLocation: "DA NANG, VN"

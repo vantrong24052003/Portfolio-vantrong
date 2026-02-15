@@ -8,7 +8,7 @@ const languages = [
   { id: 'vi', name: 'Tiếng Việt', label: 'VI' },
 ];
 
-const cn = (...inputs: any[]) => inputs.filter(Boolean).join(' ');
+const cn = (...inputs: unknown[]) => inputs.filter(Boolean).join(' ');
 
 export const LanguageSwitcher: React.FC = () => {
   const { i18n } = useTranslation();
@@ -24,7 +24,7 @@ export const LanguageSwitcher: React.FC = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="p-3 bg-card/80 backdrop-blur-md border border-border rounded-full hover:border-primary/50 transition-all duration-300 group flex items-center gap-2 cursor-pointer"
-        title="Change Language"
+        title={i18n.t('common.language.title')}
       >
         <MdLanguage className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
         <span className="font-mono text-xs font-bold text-muted-foreground group-hover:text-primary transition-colors">
@@ -49,7 +49,7 @@ export const LanguageSwitcher: React.FC = () => {
                     i18n.language === lang.id ? "bg-primary/10 text-primary" : "hover:bg-muted text-muted-foreground hover:text-foreground"
                   )}
                 >
-                  <span className="text-sm font-medium">{lang.name}</span>
+                  <span className="text-sm font-medium">{i18n.t(`common.languages.${lang.id}`)}</span>
                   {i18n.language === lang.id && <Check className="w-4 h-4" />}
                 </button>
               ))}

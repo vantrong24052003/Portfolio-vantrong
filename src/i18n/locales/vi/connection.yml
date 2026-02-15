@@ -7,3 +7,10 @@ identity:
   ready: "TRẠNG THÁI: SẴN SÀNG"
   role: "Lập trình viên Backend"
   framework: "Ruby on Rails"
+  visualization: "Hình ảnh nhận diện"
+labels:
+  email: "Email"
+  phone: "Điện thoại"
+  github: "GitHub"
+  facebook: "Facebook"
+  instagram: "Instagram"
