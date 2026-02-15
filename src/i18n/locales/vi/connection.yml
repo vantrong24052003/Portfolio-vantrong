@@ -1,0 +1,16 @@
+button: "Khởi tạo Liên hệ"
+chips:
+  experience: "~1 Năm RoR"
+  location: "Thành phố Đà Nẵng"
+techId: "ID: 8392-DEV-VN"
+identity:
+  ready: "TRẠNG THÁI: SẴN SÀNG"
+  role: "Lập trình viên Backend"
+  framework: "Ruby on Rails"
+  visualization: "Hình ảnh nhận diện"
+labels:
+  email: "Email"
+  phone: "Điện thoại"
+  github: "GitHub"
+  facebook: "Facebook"
+  instagram: "Instagram"

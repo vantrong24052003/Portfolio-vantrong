@@ -1,0 +1,9 @@
+stats:
+  title: "NEARLY 1 YEAR"
+  subtitle: "System Experience"
+  repoTitle: "Project Repository"
+card:
+  demoUnavailable: "Demo Unavailable"
+  viewCode: "View Code"
+  booting: "BOOTING SYSTEM... SUCCESS"
+  stackPrefix: "STACK:"

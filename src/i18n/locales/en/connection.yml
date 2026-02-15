@@ -1,0 +1,16 @@
+button: "Initialize Contact"
+chips:
+  experience: "~1 Year RoR"
+  location: "Da Nang City"
+techId: "ID: 8392-DEV-VN"
+identity:
+  ready: "OP: READY"
+  role: "Backend Developer"
+  framework: "Ruby on Rails"
+  visualization: "Identity Visualization"
+labels:
+  email: "Email"
+  phone: "Phone"
+  github: "GitHub"
+  facebook: "Facebook"
+  instagram: "Instagram"

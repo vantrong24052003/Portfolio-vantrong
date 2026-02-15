@@ -1,0 +1,20 @@
+theme:
+  title: "Thay đổi giao diện"
+  mode: "Chế độ"
+  dark: "Tối"
+  light: "Sáng"
+palettes:
+  red: "Đỏ"
+  blue: "Xanh dương"
+  green: "Xanh lá"
+  purple: "Tím"
+  orange: "Cam"
+  pink: "Hồng"
+language:
+  title: "Thay đổi ngôn ngữ"
+languages:
+  en: "Tiếng Anh"
+  vi: "Tiếng Việt"
+navigation:
+  next: "KẾ TIẾP"
+  prev: "QUAY LẠI"

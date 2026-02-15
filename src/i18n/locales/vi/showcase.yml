@@ -1,0 +1,9 @@
+stats:
+  title: "GẦN 1 NĂM"
+  subtitle: "Kinh nghiệm hệ thống"
+  repoTitle: "Kho lưu trữ dự án"
+card:
+  demoUnavailable: "Bản dùng thử không khả dụng"
+  viewCode: "Xem mã nguồn"
+  booting: "ĐANG KHỞI ĐỘNG HỆ THỐNG... THÀNH CÔNG"
+  stackPrefix: "STACK:"
