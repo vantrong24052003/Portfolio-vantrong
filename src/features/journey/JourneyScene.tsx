@@ -9,7 +9,7 @@ export const JourneyScene: React.FC = () => {
 
   return (
     <SceneLayout>
-      <div className="flex-grow relative z-10 w-full px-6 md:px-12 lg:px-24 py-8 flex flex-col lg:flex-row items-center lg:items-center justify-center min-h-screen gap-12 lg:gap-24">
+      <div className="flex-grow relative z-10 w-full px-6 md:px-12 lg:px-24 py-20 flex flex-col lg:flex-row items-center lg:items-center justify-center min-h-screen gap-12 lg:gap-24">
         <TimelineNodes
           milestones={milestones}
           activeIndex={activeIndex}

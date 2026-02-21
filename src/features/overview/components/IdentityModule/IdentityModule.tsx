@@ -1,17 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaGem, FaNodeJs, FaReact, FaVuejs, FaGithub, FaFacebook, FaEnvelope, FaInstagram, FaDownload, FaLaravel, FaTrophy, FaGraduationCap } from 'react-icons/fa';
-import { MdTerminal, MdArrowForwardIos } from 'react-icons/md';
-import type { TechBadgeProps, SocialLinkProps } from './types';
+import { FaGem, FaNodeJs, FaGithub, FaFacebook, FaEnvelope, FaTrophy, FaGraduationCap, FaDocker, FaAws, FaAward } from 'react-icons/fa';
+import { SiKubernetes } from 'react-icons/si';
+import { MdArrowForwardIos, MdVerified } from 'react-icons/md';
+import type { SocialLinkProps } from './types';
 
-const TechBadge: React.FC<TechBadgeProps> = ({ icon: Icon, label, colorClass, borderOnly = true }) => (
-  <div className={`flex items-center gap-2 ${borderOnly ? 'bg-muted/50 border border-border' : 'bg-primary/10 border border-primary/30'} px-3 py-1.5 rounded text-sm group cursor-default transition-all duration-300 hover:border-primary/50`}>
-    <Icon className={`${colorClass || 'text-muted-foreground group-hover:text-primary'}`} />
-    <span className={`font-mono ${borderOnly ? 'text-muted-foreground group-hover:text-foreground' : 'text-primary font-semibold'}`}>
-      {label}
-    </span>
-  </div>
-);
+const AVATAR_URL = "/avatar.jpg";
 
 const SocialLink: React.FC<SocialLinkProps> = ({ icon: Icon, label, href = "#" }) => (
   <a
@@ -29,103 +23,127 @@ export const IdentityModule: React.FC<{ onContactClick?: () => void }> = ({ onCo
   const { t } = useTranslation();
 
   return (
-    <section className="w-full lg:w-7/12 flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-8 duration-700 transform-gpu">
-      <div className="glass-panel rounded-xl p-8 md:p-10 relative overflow-hidden group transition-colors duration-500 hover:border-primary/50">
-        {/* Decorative corner accents */}
-        <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary" />
-        <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary" />
+    <div className="w-full max-w-7xl flex flex-col items-center gap-12 animate-in fade-in slide-in-from-bottom-8 duration-700 transform-gpu py-12">
+      <div className="w-full relative overflow-visible group">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center lg:items-center relative z-10">
 
-        <div className="space-y-6">
-          <div>
-            <h2 className="text-primary font-mono text-sm tracking-[0.2em] mb-2 flex items-center gap-2">
-              <MdTerminal className="text-base" />
-              {t('overview.title')}
-            </h2>
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mt-1 cursor-default">
-              <span className="hover:animate-glitch hover:glow-ruby transition-all duration-100 block">
-                {t('nav.brand').split(' ').slice(0, 2).join(' ')}
-              </span>
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-foreground to-muted-foreground hover:animate-glitch hover:glow-ruby transition-all duration-100 block">
-                {t('nav.brand').split(' ').slice(2).join(' ')}
-              </span>
-            </h3>
-          </div>
-
-          <p className="text-muted-foreground text-lg leading-relaxed border-l-2 border-primary/30 pl-4 font-display">
-            {t('overview.bio').split('{{framework}}')[0]}
-            <span className="text-primary font-semibold">{t('overview.framework')}</span>
-            {t('overview.bio').split('{{framework}}')[1]}
-          </p>
-
-          {/* Achievement Badges */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-3 flex items-center gap-4 transition-all duration-300 hover:bg-amber-500/20 hover:border-amber-500/50 group/ach shadow-[0_0_15px_hsla(var(--primary)/0.05)]">
-              <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-500 group-hover/ach:scale-110 transition-transform shadow-[0_0_15px_rgba(245,158,11,0.3)]">
-                <FaGraduationCap className="text-xl" />
-              </div>
-              <div>
-                <div className="text-[10px] font-mono text-amber-500/60 uppercase tracking-widest">{t('journey.milestones.education.subLabel')}</div>
-                <div className="text-sm font-bold text-amber-500/90">{t('overview.achievements.honors')}</div>
+          {/* Information Section (Left) */}
+          <div className="flex-grow space-y-10 text-center lg:text-left order-2 lg:order-1">
+            <div className="space-y-4">
+              <h2 className="text-primary font-mono text-sm tracking-[0.5em] flex items-center justify-center lg:justify-start gap-4">
+                <div className="w-8 h-[1px] bg-primary/50" />
+                {t('overview.title')}
+              </h2>
+              <div className="flex flex-col gap-4">
+                <h3 className="text-5xl md:text-6xl lg:text-8xl font-bold text-foreground leading-[0.9] cursor-default tracking-tighter">
+                  <span className="hover:animate-glitch hover:glow-ruby transition-all duration-100 block">
+                    {t('nav.brand').split(' ').slice(0, 2).join(' ')}
+                  </span>
+                  <span className="text-transparent bg-clip-text bg-linear-to-r from-foreground/80 to-muted-foreground/50 hover:animate-glitch hover:glow-ruby transition-all duration-100 block">
+                    {t('nav.brand').split(' ').slice(2).join(' ')}
+                  </span>
+                </h3>
+                <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold px-4 py-1.5 rounded-full animate-fade-in w-fit mx-auto lg:mx-0 font-mono tracking-widest uppercase">
+                  <MdVerified className="text-xs" />
+                  {t('overview.stats.experience')}
+                </div>
               </div>
             </div>
-            <div className="bg-accent/5 border border-accent/20 rounded-lg p-3 flex items-center gap-4 transition-all duration-300 hover:bg-accent/10 hover:border-accent/40 group/ach">
-              <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent group-hover/ach:scale-110 transition-transform shadow-[0_0_10px_hsla(var(--accent)/0.2)]">
-                <FaTrophy className="text-xl" />
+
+            <p className="text-muted-foreground text-xl md:text-2xl leading-relaxed font-display max-w-2xl mx-auto lg:mx-0 opacity-80 italic">
+              " {t('overview.bio').split('{{framework}}')[0]}
+              <span className="text-primary not-italic font-bold">{t('overview.framework')}</span>
+              {t('overview.bio').split('{{framework}}')[1]} "
+            </p>
+
+            {/* Achievement Badges - More Minimal */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+              <div className="flex flex-col items-center lg:items-start gap-3 group/ach">
+                <FaAward className="text-3xl text-amber-500/60 group-hover/ach:text-amber-500 transition-colors" />
+                <div className="space-y-1">
+                  <div className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.2em]">{t('overview.achievements.rubySilver')}</div>
+                  <div className="text-base font-bold text-foreground/80">Ruby Silver</div>
+                </div>
               </div>
-              <div>
-                <div className="text-[10px] font-mono text-accent/60 uppercase tracking-widest">{t('overview.achievements.scientificResearch')}</div>
-                <div className="text-sm font-bold text-foreground">{t('overview.achievements.nckh')}</div>
+              <div className="flex flex-col items-center lg:items-start gap-3 group/ach">
+                <FaGraduationCap className="text-3xl text-primary/60 group-hover/ach:text-primary transition-colors" />
+                <div className="space-y-1">
+                  <div className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.2em]">{t('journey.milestones.education.subLabel')}</div>
+                  <div className="text-base font-bold text-foreground/80">{t('overview.achievements.honors')}</div>
+                </div>
+              </div>
+              <div className="flex flex-col items-center lg:items-start gap-3 group/ach">
+                <FaTrophy className="text-3xl text-primary/60 group-hover/ach:text-primary transition-colors" />
+                <div className="space-y-1">
+                  <div className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.2em]">{t('overview.achievements.scientificResearch')}</div>
+                  <div className="text-base font-bold text-foreground/80">{t('overview.achievements.nckh')}</div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Tech Stack Badges */}
-          <div className="flex flex-wrap gap-3 py-2">
-            <TechBadge icon={FaGem} label={t('overview.techBadges.ruby')} colorClass="text-primary" borderOnly={false} />
-            <TechBadge icon={FaNodeJs} label={t('overview.techBadges.nodejs')} colorClass="text-green-500" />
-            <TechBadge icon={FaReact} label={t('overview.techBadges.react')} colorClass="text-blue-400" />
-            <TechBadge icon={FaVuejs} label={t('overview.techBadges.vue')} colorClass="text-emerald-400" />
-            <TechBadge icon={FaLaravel} label={t('overview.techBadges.laravel')} colorClass="text-red-500" />
-          </div>
+            {/* Tech Categories */}
+            <div className="flex flex-col gap-6 pt-4">
+              {/* Backend & Frontend */}
+              <div className="flex flex-col items-center lg:items-start gap-3">
+                <div className="text-[10px] font-mono text-primary/60 uppercase tracking-[0.3em] font-bold">Backend Engineering</div>
+                <div className="flex flex-wrap justify-center lg:justify-start gap-6 opacity-70 hover:opacity-100 transition-opacity">
+                  <FaGem className="text-3xl text-primary hover:scale-125 transition-transform cursor-help" title="Ruby" />
+                  <FaNodeJs className="text-3xl text-green-500 hover:scale-125 transition-transform cursor-help" title="Node.js" />
+                </div>
+              </div>
 
-          <div className="h-px w-full bg-linear-to-r from-primary/50 to-transparent my-2" />
+              {/* DevOps & Infra */}
+              <div className="flex flex-col items-center lg:items-start gap-3">
+                <div className="text-[10px] font-mono text-primary/60 uppercase tracking-[0.3em] font-bold">DevOps & Cloud</div>
+                <div className="flex flex-wrap justify-center lg:justify-start gap-6 opacity-70 hover:opacity-100 transition-opacity">
+                  <FaDocker className="text-3xl text-blue-500 hover:scale-125 transition-transform cursor-help" title="Docker" />
+                  <SiKubernetes className="text-3xl text-blue-400 hover:scale-125 transition-transform cursor-help" title="Kubernetes" />
+                  <FaAws className="text-3xl text-orange-400 hover:scale-125 transition-transform cursor-help" title="AWS" />
+                </div>
+              </div>
+            </div>
 
-          {/* Footer Actions */}
-          <div className="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-6">
-            <div className="flex flex-wrap sm:flex-nowrap gap-4 w-full sm:w-auto">
+            {/* Footer Actions */}
+            <div className="flex flex-col sm:flex-row items-center gap-8 pt-4">
               <button
                 onClick={onContactClick}
-                className="bg-primary hover:bg-primary-dark text-primary-foreground font-bold py-3 px-6 rounded-lg shadow-[0_0_15px_hsla(var(--primary)/0.4)] hover:shadow-[0_0_25px_hsla(var(--primary)/0.6)] transition-all duration-300 flex items-center justify-center gap-2 group/btn cursor-pointer whitespace-nowrap flex-1 sm:flex-none"
+                className="bg-primary hover:bg-primary-dark text-primary-foreground font-bold py-4 px-10 rounded-full shadow-2xl hover:shadow-[0_0_30px_hsla(var(--primary)/0.4)] transition-all duration-300 flex items-center justify-center gap-3 group/btn cursor-pointer whitespace-nowrap tracking-widest text-xs"
               >
-                <span>{t('overview.button')}</span>
-                <MdArrowForwardIos className="group-hover/btn:translate-x-1 transition-transform text-sm" />
+                <span>{t('overview.button').toUpperCase()}</span>
+                <MdArrowForwardIos className="group-hover/btn:translate-x-1 transition-transform text-xs" />
               </button>
 
-              <a
-                href="/cv-doanvovantrong.pdf"
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-card/40 hover:bg-card/60 text-foreground border border-border hover:border-primary/50 backdrop-blur-md font-bold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group/cv cursor-pointer whitespace-nowrap flex-1 sm:flex-none"
-              >
-                <FaDownload className="group-hover:translate-y-0.5 transition-transform text-primary" />
-                <span>{t('overview.downloadCV')}</span>
-              </a>
-            </div>
-            <div className="flex items-center gap-4">
-              <SocialLink icon={FaGithub} label={t('connection.labels.github')} href="https://github.com/vantrong2405" />
-              <SocialLink icon={FaFacebook} label={t('connection.labels.facebook')} href="https://www.facebook.com/doanvo.vantrong" />
-              <SocialLink icon={FaInstagram} label={t('connection.labels.instagram')} href="https://www.instagram.com/trongvan2405/" />
-              <SocialLink icon={FaEnvelope} label={t('connection.labels.email')} href="mailto:trongdn2405@gmail.com" />
+              <div className="flex items-center gap-6">
+                <SocialLink icon={FaGithub} label={t('connection.labels.github')} href="https://github.com/vantrong2405" />
+                <SocialLink icon={FaFacebook} label={t('connection.labels.facebook')} href="https://www.facebook.com/doanvo.vantrong" />
+                <SocialLink icon={FaEnvelope} label={t('connection.labels.email')} href="mailto:trongdn2405@gmail.com" />
+              </div>
             </div>
           </div>
+
+          {/* Huge Avatar - No Border, Masked for Seamless Blend */}
+          <div className="relative shrink-0 order-1 lg:order-2">
+            <div className="absolute -inset-20 bg-primary/10 rounded-full blur-[150px] animate-pulse pointer-events-none" />
+            <div className="relative w-72 h-[450px] md:w-96 md:h-[600px] lg:w-[500px] lg:h-[750px] pointer-events-none select-none">
+              <img
+                src={AVATAR_URL}
+                alt="Profile"
+                className="w-full h-full object-cover transition-transform duration-1000 [mask-image:linear-gradient(to_bottom,black_85%,transparent_100%)]"
+              />
+              {/* Status indicator */}
+              <div className="absolute bottom-20 -left-6 flex items-center gap-3 bg-background/40 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full shadow-2xl z-20 pointer-events-auto">
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_15px_rgba(34,197,94,1)]" />
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      {/* Floating Decorative Stats */}
-      <div className="flex justify-end px-2 text-xs font-mono text-muted-foreground uppercase tracking-wider">
+      {/* Location Badge */}
+      <div className="w-full flex justify-end px-4 text-[10px] font-mono text-muted-foreground uppercase tracking-widest opacity-60">
         <div>{t('overview.stats.location')}</div>
       </div>
-    </section>
+    </div>
   );
 };

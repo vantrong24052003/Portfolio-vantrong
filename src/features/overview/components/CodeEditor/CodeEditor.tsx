@@ -42,8 +42,8 @@ export const CodeEditor: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="w-full lg:w-6/12 h-[500px] flex flex-col relative animate-in fade-in slide-in-from-right-8 duration-700 will-change-transform">
-      <div className="absolute -inset-1 bg-linear-to-r from-primary to-accent-ruby rounded-xl blur opacity-20" />
+    <section className="w-full lg:w-4/12 h-[500px] flex flex-col relative animate-in fade-in slide-in-from-right-8 duration-700 will-change-transform">
+      <div className="absolute -inset-0.5 bg-primary/20 rounded-xl blur-lg" />
 
       <div className="relative w-full h-full bg-[#1e1e1e]/90 backdrop-blur-xl rounded-xl overflow-hidden border border-primary/20 shadow-2xl flex flex-col font-mono text-sm">
         <div className="h-10 bg-[#252526]/80 border-b border-primary/10 flex items-center justify-between px-4 select-none">
@@ -86,23 +86,22 @@ export const CodeEditor: React.FC = () => {
             <pre className="whitespace-pre">
               <motion.code className="block">
                 <motion.div variants={item}><Syntax type={SyntaxType.Keyword}>class</Syntax> <Syntax type={SyntaxType.Class}>IdentityController</Syntax> &lt; <Syntax type={SyntaxType.Class}>ApplicationController</Syntax></motion.div>
-                <motion.div variants={item}>{"  "}<Syntax type={SyntaxType.Keyword}>before_action</Syntax> <Syntax type={SyntaxType.Symbol}>:authenticate_purpose!</Syntax></motion.div>
+                <motion.div variants={item}>{"  "}<Syntax type={SyntaxType.Keyword}>include</Syntax> <Syntax type={SyntaxType.Class}>DevOps</Syntax>::<Syntax type={SyntaxType.Class}>Automation</Syntax></motion.div>
                 <motion.div variants={item}></motion.div>
-                <motion.div variants={item}>{"  "}<Syntax type={SyntaxType.Keyword}>def</Syntax> <Syntax type={SyntaxType.Function}>show</Syntax></motion.div>
+                <motion.div variants={item}>{"  "}<Syntax type={SyntaxType.Keyword}>before_action</Syntax> <Syntax type={SyntaxType.Symbol}>:authenticate_purpose!</Syntax></motion.div>
+                <motion.div variants={item}>{"  "}<Syntax type={SyntaxType.Keyword}>before_action</Syntax> <Syntax type={SyntaxType.Symbol}>:verify_experience!</Syntax></motion.div>
+                <motion.div variants={item}></motion.div>
+                <motion.div variants={item}>{"  "}<Syntax type={SyntaxType.Keyword}>def</Syntax> <Syntax type={SyntaxType.Function}>status</Syntax></motion.div>
                 <motion.div variants={item}>{"    "}<Syntax type={SyntaxType.Symbol}>@developer</Syntax> = <Syntax type={SyntaxType.Class}>Developer</Syntax>.find_by(<Syntax type={SyntaxType.Symbol}>name:</Syntax> <Syntax type={SyntaxType.String}>'Đoàn Võ Văn Trọng'</Syntax>)</motion.div>
                 <motion.div variants={item}>{"    "}</motion.div>
-                <motion.div variants={item}>{"    "}<Syntax type={SyntaxType.Keyword}>if</Syntax> <Syntax type={SyntaxType.Symbol}>@developer</Syntax>.ready?</motion.div>
-                <motion.div variants={item}>{"      "}<Syntax type={SyntaxType.Symbol}>@skills</Syntax> = {"{"}</motion.div>
-                <motion.div variants={item}>{"        "}<Syntax type={SyntaxType.Symbol}>backend:</Syntax> [<Syntax type={SyntaxType.String}>'Ruby on Rails'</Syntax>, <Syntax type={SyntaxType.String}>'Node.js'</Syntax>],</motion.div>
-                <motion.div variants={item}>{"        "}<Syntax type={SyntaxType.Symbol}>frontend:</Syntax> [<Syntax type={SyntaxType.String}>'Vue.js'</Syntax>, <Syntax type={SyntaxType.String}>'React'</Syntax>],</motion.div>
-                <motion.div variants={item}>{"        "}<Syntax type={SyntaxType.Symbol}>database:</Syntax> [<Syntax type={SyntaxType.String}>'PostgreSQL'</Syntax>, <Syntax type={SyntaxType.String}>'Redis'</Syntax>]</motion.div>
+                <motion.div variants={item}>{"    "}<Syntax type={SyntaxType.Keyword}>if</Syntax> <Syntax type={SyntaxType.Symbol}>@developer</Syntax>.has_experience?(<Syntax type={SyntaxType.Number}>1</Syntax>.year)</motion.div>
+                <motion.div variants={item}>{"      "}<Syntax type={SyntaxType.Symbol}>@profile</Syntax> = {"{"}</motion.div>
+                <motion.div variants={item}>{"        "}<Syntax type={SyntaxType.Symbol}>role:</Syntax> <Syntax type={SyntaxType.String}>'Backend & DevOps'</Syntax>,</motion.div>
+                <motion.div variants={item}>{"        "}<Syntax type={SyntaxType.Symbol}>cert:</Syntax> <Syntax type={SyntaxType.String}>'Ruby Silver Certificate'</Syntax>,</motion.div>
+                <motion.div variants={item}>{"        "}<Syntax type={SyntaxType.Symbol}>stack:</Syntax> [<Syntax type={SyntaxType.String}>'Rails'</Syntax>, <Syntax type={SyntaxType.String}>'Docker'</Syntax>, <Syntax type={SyntaxType.String}>'Node.js'</Syntax>]</motion.div>
                 <motion.div variants={item}>{"      "}{"}"}</motion.div>
                 <motion.div variants={item}>{"      "}</motion.div>
-                <motion.div variants={item}>{"      "}<Syntax type={SyntaxType.Function}>render</Syntax> <Syntax type={SyntaxType.Symbol}>json:</Syntax> {"{"}</motion.div>
-                <motion.div variants={item}>{"        "}<Syntax type={SyntaxType.Symbol}>message:</Syntax> <Syntax type={SyntaxType.String}>'{t('overview.codeEditor.message')}'</Syntax>,</motion.div>
-                <motion.div variants={item}>{"        "}<Syntax type={SyntaxType.Symbol}>data:</Syntax> <Syntax type={SyntaxType.Symbol}>@skills</Syntax>,</motion.div>
-                <motion.div variants={item}>{"        "}<Syntax type={SyntaxType.Symbol}>status:</Syntax> <Syntax type={SyntaxType.Number}>200</Syntax></motion.div>
-                <motion.div variants={item}>{"      "}{"}"}</motion.div>
+                <motion.div variants={item}>{"      "}<Syntax type={SyntaxType.Function}>render</Syntax> <Syntax type={SyntaxType.Symbol}>json:</Syntax> {"{ "} <Syntax type={SyntaxType.Symbol}>message:</Syntax> <Syntax type={SyntaxType.String}>'{t('overview.codeEditor.message')}'</Syntax>, <Syntax type={SyntaxType.Symbol}>data:</Syntax> <Syntax type={SyntaxType.Symbol}>@profile</Syntax> {" }"}</motion.div>
                 <motion.div variants={item}>{"    "}<Syntax type={SyntaxType.Keyword}>end</Syntax></motion.div>
                 <motion.div variants={item}>{"  "}<Syntax type={SyntaxType.Keyword}>end</Syntax></motion.div>
               </motion.code>
