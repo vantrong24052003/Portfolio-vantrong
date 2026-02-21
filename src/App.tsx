@@ -1,68 +1,84 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import './i18n';
 
 import { OverviewScene } from '@/features/overview'
 import { JourneyScene } from '@/features/journey'
 import { ShowcaseScene } from '@/features/showcase'
 import { ConnectionScene } from '@/features/connection'
-import { SystemHeader, scenes, SceneNavigation } from '@/layouts'
+import { SystemHeader, scenes, GlobalBackground } from '@/layouts'
 import { ThemeSwitcher } from '@/features/theme/components/ThemeSwitcher/ThemeSwitcher'
 import { LanguageSwitcher } from '@/layouts/LanguageSwitcher'
-import { CameraWarpContainer } from '@/shared/components/Motion/CameraWarpContainer'
 
 const App: React.FC = () => {
   const [currentScene, setCurrentScene] = useState(0)
-  const handleSceneChange = useCallback((newScene: number) => {
-    let targetScene = newScene;
-    if (newScene >= scenes.length) {
-      targetScene = 0;
-    } else if (newScene < 0) {
-      targetScene = scenes.length - 1;
+  const isScrollingManually = useRef(false);
+
+  const scrollToScene = useCallback((idx: number) => {
+    const section = document.getElementById(`scene-${idx}`);
+    if (section) {
+      isScrollingManually.current = true;
+      setCurrentScene(idx);
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Reset manual scroll flag after animation
+      setTimeout(() => {
+        isScrollingManually.current = false;
+      }, 1000);
     }
-    setCurrentScene(targetScene);
   }, []);
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') {
-        handleSceneChange(currentScene + 1);
-      } else if (e.key === 'ArrowLeft') {
-        handleSceneChange(currentScene - 1);
-      }
+    const handleScroll = () => {
+      if (isScrollingManually.current) return;
+
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+      scenes.forEach((_, idx) => {
+        const section = document.getElementById(`scene-${idx}`);
+        if (section) {
+          const { paddingTop } = window.getComputedStyle(section);
+          const top = section.offsetTop - parseInt(paddingTop);
+          const bottom = top + section.offsetHeight;
+
+          if (scrollPosition >= top && scrollPosition < bottom) {
+            setCurrentScene(idx);
+          }
+        }
+      });
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentScene, handleSceneChange]);
-
-  const renderScene = () => {
-    switch (currentScene) {
-      case 0: return <OverviewScene onContactClick={() => setCurrentScene(3)} />;
-      case 1: return <JourneyScene />;
-      case 2: return <ShowcaseScene />;
-      case 3: return <ConnectionScene />;
-      default: return <OverviewScene />;
-    }
-  }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 overflow-hidden text-balance">
-      <SystemHeader currentScene={currentScene} onSceneChange={setCurrentScene} />
+    <div className="relative min-h-screen bg-background text-foreground selection:bg-primary/30 text-balance overflow-x-hidden">
+      <GlobalBackground />
 
-      <div className="h-screen overflow-y-auto overflow-x-hidden custom-scrollbar pt-16">
-        <CameraWarpContainer sceneKey={currentScene}>
-          {renderScene()}
-        </CameraWarpContainer>
-      </div>
+      <SystemHeader currentScene={currentScene} onSceneChange={scrollToScene} />
 
-      <SceneNavigation
-        onNext={() => handleSceneChange(currentScene + 1)}
-        onPrev={() => handleSceneChange(currentScene - 1)}
-      />
+      <main className="relative z-10">
+        <section id="scene-0" className="min-h-screen flex items-center justify-center">
+          <OverviewScene onContactClick={() => scrollToScene(3)} />
+        </section>
 
-      <div className="fixed bottom-8 right-8 z-50 flex items-center gap-4">
-        <LanguageSwitcher />
-        <ThemeSwitcher />
+        <section id="scene-1" className="min-h-screen flex items-center justify-center">
+          <JourneyScene />
+        </section>
+
+        <section id="scene-2" className="min-h-screen flex items-center justify-center">
+          <ShowcaseScene />
+        </section>
+
+        <section id="scene-3" className="min-h-screen flex items-center justify-center">
+          <ConnectionScene />
+        </section>
+      </main>
+
+      <div className="fixed bottom-8 right-8 z-50 flex flex-col sm:flex-row items-center gap-4">
+        <div className="flex items-center gap-4">
+          <LanguageSwitcher />
+          <ThemeSwitcher />
+        </div>
 
         <div className="hidden sm:flex items-center gap-2 bg-card/80 backdrop-blur-md border border-border rounded-full px-4 py-2">
           <span className="text-primary font-mono text-sm font-bold">{String(currentScene + 1).padStart(2, '0')}</span>
@@ -73,6 +89,5 @@ const App: React.FC = () => {
     </div>
   )
 }
-
 
 export default App

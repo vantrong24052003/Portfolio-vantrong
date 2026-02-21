@@ -7,16 +7,22 @@ techBadges:
   react: "React"
   vue: "Vue"
   laravel: "Laravel"
+  devops: "DevOps"
+  docker: "Docker"
+  kubernetes: "Kubernetes"
+  aws: "AWS"
 button: "KHỞI TẠO LIÊN HỆ"
 downloadCV: "TẢI XUỐNG CV"
 stats:
   id: "ID: 84-DEV-BE"
   status: "Trạng thái: Sẵn sàng"
   location: "Vị trí: Việt Nam"
+  experience: "1 Năm"
 achievements:
   honors: "Tốt nghiệp loại Giỏi - DTU"
   scientificResearch: "Nghiên cứu khoa học"
   nckh: "NCKH: Giải Nhì cấp Trường"
+  rubySilver: "Chứng chỉ Ruby Silver"
 codeEditor:
   fileName: "identity_controller.rb"
   message: "Sẵn sàng xây dựng các hệ thống mở rộng"

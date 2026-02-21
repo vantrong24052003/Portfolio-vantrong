@@ -330,7 +330,7 @@
     color: hsl(var(--foreground));
   }
   body {
-    @apply bg-background text-foreground font-display overflow-hidden;
+    @apply bg-background text-foreground font-display;
   }
 }
 

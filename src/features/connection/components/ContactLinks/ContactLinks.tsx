@@ -25,7 +25,7 @@ export const ContactLinks: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center gap-6 w-full max-w-2xl px-4 animate-in fade-in slide-in-from-bottom-10 duration-1000">
+    <div className="flex flex-wrap items-center justify-center gap-4 w-full max-w-4xl px-4 animate-in fade-in slide-in-from-bottom-10 duration-1000">
       <RevealLink
         icon={FaEnvelope}
         value="trongdn2405@gmail.com"

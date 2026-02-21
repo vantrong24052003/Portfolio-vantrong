@@ -1,13 +1,13 @@
 button: "Khởi tạo Liên hệ"
 chips:
-  experience: "~1 Năm RoR"
+  experience: "1 Năm Kinh Nghiệm"
   location: "Thành phố Đà Nẵng"
 techId: "ID: 8392-DEV-VN"
 identity:
-  ready: "TRẠNG THÁI: SẴN SÀNG"
-  role: "Lập trình viên Backend"
-  framework: "Ruby on Rails"
-  visualization: "Hình ảnh nhận diện"
+  ready: "HỆ THỐNG: TRỰC TUYẾN"
+  role: "DevOps & Backend Engineer"
+  framework: "Cốt lõi Hệ thống"
+  visualization: "Trực quan hóa Hệ thống"
 labels:
   email: "Email"
   phone: "Điện thoại"

@@ -1,13 +1,13 @@
 button: "Initialize Contact"
 chips:
-  experience: "~1 Year RoR"
+  experience: "1 Year Experience"
   location: "Da Nang City"
 techId: "ID: 8392-DEV-VN"
 identity:
-  ready: "OP: READY"
-  role: "Backend Developer"
-  framework: "Ruby on Rails"
-  visualization: "Identity Visualization"
+  ready: "SYS: ONLINE"
+  role: "DevOps & Backend"
+  framework: "System Core"
+  visualization: "System Core Visualization"
 labels:
   email: "Email"
   phone: "Phone"

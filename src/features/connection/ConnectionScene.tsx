@@ -9,8 +9,8 @@ export const ConnectionScene: React.FC = () => {
 
   return (
     <SceneLayout>
-      <div className="flex-grow flex items-center justify-center p-4 sm:px-6 md:px-12 lg:px-24 min-h-screen">
-        <div className="glass-panel w-full max-w-5xl p-8 md:p-12 lg:p-16 rounded-2xl relative overflow-hidden group">
+      <div className="flex-grow flex items-center justify-center py-24 px-6 md:px-12 lg:px-24 min-h-screen">
+        <div className="glass-panel w-full max-w-7xl p-10 md:p-16 lg:p-24 rounded-[3rem] relative overflow-hidden group">
           <div className="absolute top-0 left-0 w-32 h-32 border-l-2 border-t-2 border-primary/40 rounded-tl-2xl -translate-x-1 -translate-y-1" />
           <div className="absolute bottom-0 right-0 w-32 h-32 border-r-2 border-b-2 border-primary/40 rounded-br-2xl translate-x-1 translate-y-1" />
           <div className="absolute top-4 right-4 text-[10px] text-primary/60 font-mono tracking-[0.3em]">{t('connection.techId')}</div>

@@ -7,16 +7,22 @@ techBadges:
   react: "React"
   vue: "Vue"
   laravel: "Laravel"
+  devops: "DevOps"
+  docker: "Docker"
+  kubernetes: "Kubernetes"
+  aws: "AWS"
 button: "INITIALIZE CONTACT"
 downloadCV: "DOWNLOAD CV"
 stats:
   id: "ID: 84-DEV-BE"
   status: "Status: Available"
   location: "Loc: Vietnam"
+  experience: "1 Year"
 achievements:
   honors: "Graduated with Honors - DTU"
   scientificResearch: "Scientific Research"
   nckh: "NCKH: 2nd Prize Winner"
+  rubySilver: "Ruby Silver Certificate"
 codeEditor:
   fileName: "identity_controller.rb"
   message: "Ready to build scalable systems"
